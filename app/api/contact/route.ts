@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 const emailPattern = /\S+@\S+\.\S+/;
 
@@ -33,6 +33,7 @@ async function getPayload(request: Request): Promise<ContactPayload> {
 
 export async function POST(request: Request) {
   const payload = await getPayload(request);
+  const supabase = createSupabaseServerClient();
 
   // ── Validate required fields ──────────────────────────────────────────────
   if (

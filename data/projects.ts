@@ -1,6 +1,5 @@
 export const projects = [
   {
-<<<<<<< HEAD
     slug: "aiclinic-assistant-platform",
     client: "NovaCare Clinics",
     year: "2026",
@@ -62,7 +61,8 @@ export const projects = [
       { value: "v2-ready", label: "Scalable foundation" },
     ],
     tags: ["App Development", "UI/UX", "Architecture"],
-=======
+  },
+  {
     slug: "ai-dementia-memory-companion",
     client: "Healthcare AI",
     year: "2026",
@@ -136,6 +136,5 @@ export const projects = [
       { value: "0 effort", label: "PR documentation" },
     ],
     tags: ["DevOps Automation", "AI Agents", "Team Intelligence"],
->>>>>>> 956e58cf5eb4f0dc63941633258fad8ecda33249
   },
 ] as const;
