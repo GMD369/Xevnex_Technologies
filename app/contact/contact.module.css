@@ -1,0 +1,43 @@
+/* ── Contact page — responsive layout ── */
+
+/* ─── Body grid ── */
+.bodyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* ─── Name / Email row ── */
+.nameEmailGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ─── Tablet (≤ 960px) ── */
+@media (max-width: 960px) {
+  .bodyGrid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Form first on mobile */
+  .bodyGrid > *:first-child {
+    order: 2;
+  }
+  .bodyGrid > *:last-child {
+    order: 1;
+  }
+}
+
+/* ─── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .bodyGrid {
+    gap: 2rem;
+  }
+
+  .nameEmailGrid {
+    grid-template-columns: 1fr;
+  }
+}

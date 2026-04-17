@@ -1,0 +1,118 @@
+/* ── Services page — responsive layout ── */
+
+/* Hero */
+.heroGrid {
+  display: grid;
+  align-items: center;
+  gap: 4rem;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.orbitalWrapper {
+  position: relative;
+  height: 520px;
+}
+
+/* Stats */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Service row */
+.serviceRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr;
+  gap: 2.5rem;
+  padding: 2.75rem 2.25rem 2.75rem 2.5rem;
+  border: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.deliverables {
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  padding-left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .orbitalWrapper {
+    height: 340px;
+  }
+
+  .serviceRow {
+    grid-template-columns: 56px 1fr;
+    gap: 1.75rem;
+    padding: 2rem 1.75rem 2rem 2rem;
+  }
+
+  .deliverables {
+    grid-column: 2 / -1;
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: 1.25rem;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .heroGrid {
+    gap: 2.5rem;
+  }
+
+  .orbitalWrapper {
+    height: 260px;
+  }
+
+  .serviceRow {
+    grid-template-columns: 44px 1fr;
+    gap: 1.25rem;
+    padding: 1.75rem 1.25rem 1.75rem 1.5rem;
+  }
+
+  .deliverables {
+    grid-column: 1 / -1;
+    padding-top: 1rem;
+  }
+
+  .statsGrid {
+    gap: 1.25rem;
+  }
+}
+
+/* ── Small mobile ── */
+@media (max-width: 400px) {
+  .orbitalWrapper {
+    display: none;
+  }
+
+  .serviceRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .deliverables {
+    grid-column: 1 / -1;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}

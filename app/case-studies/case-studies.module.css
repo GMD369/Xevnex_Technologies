@@ -1,0 +1,134 @@
+/* ── Case Studies page — responsive layout ── */
+
+/* Prevent any card from ever bleeding outside the viewport */
+.card {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* ─── Desktop FeaturedCard body ─────────────────────────────────────────── */
+.featuredBody {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr 1fr;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.featuredBody > * {
+  min-width: 0;
+}
+
+/* ─── Desktop ProjectRow ─────────────────────────────────────────────────── */
+.projectRow {
+  position: relative;
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 1.75rem 2rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+/* ─── Watermark column ───────────────────────────────────────────────────── */
+.watermarkCol {
+  border-left: 1px solid var(--color-divider);
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Metrics strip ──────────────────────────────────────────────────────── */
+.metricsStrip {
+  display: flex;
+  border-top: 1px solid var(--color-divider);
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── Mobile card — fully stacked ────────────────────────────────────────── */
+.mobileCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+  border: 1px solid var(--color-divider);
+  background: var(--color-surface);
+  text-decoration: none;
+  position: relative;
+  transition: border-color 0.4s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.mobileCardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-surface-strong);
+}
+
+.mobileCardBody {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mobileCardMetrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--color-divider);
+}
+
+.mobileMetricPill {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.75rem 1rem;
+  border-right: 1px solid var(--color-divider);
+}
+
+.mobileMetricPill:nth-child(even) {
+  border-right: none;
+}
+
+.mobileCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1.25rem;
+  border-top: 1px solid var(--color-divider);
+}
+
+/* ─── Mobile project row — stacked ──────────────────────────────────────── */
+.mobileProjectRow {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.mobileProjectRowTop {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}

@@ -1,0 +1,90 @@
+/* ── About page — responsive layout ── */
+
+/* ─── Header ── */
+.headerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 1.5rem 1.5rem 5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.visualWrapper {
+  position: relative;
+  height: 420px;
+}
+
+/* ─── Stats ── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+/* ─── Two-column section ── */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ─── Tablet (≤ 960px) ── */
+@media (max-width: 960px) {
+  .headerGrid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .visualWrapper {
+    height: 300px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .twoCol {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+/* ─── Mobile (≤ 600px) ── */
+@media (max-width: 600px) {
+  .headerGrid {
+    gap: 2.5rem;
+    padding: 4rem 1.25rem 3rem;
+  }
+
+  .visualWrapper {
+    height: 240px;
+  }
+
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .twoCol {
+    gap: 3rem;
+  }
+}
+
+/* ─── Small mobile (≤ 400px) ── */
+@media (max-width: 400px) {
+  .visualWrapper {
+    display: none;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+}

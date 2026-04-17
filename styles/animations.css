@@ -1,0 +1,26 @@
+.animate-enter-up {
+  animation: enter-up 0.7s ease-out both;
+}
+
+.animate-enter-up-delay {
+  animation: enter-up 0.9s ease-out both;
+}
+
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes enter-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
