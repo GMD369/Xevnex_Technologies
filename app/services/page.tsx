@@ -63,7 +63,7 @@ function OrbitalVisual() {
         <circle cx="330" cy="250" r="6" fill="currentColor" filter="url(#glow)">
           <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="20s" repeatCount="indefinite" />
         </circle>
-        <circle cx="330" cy="250" r="3" fill="#fff" opacity="0.92">
+        <circle cx="330" cy="250" r="3" fill="var(--color-accent-strong)" opacity="0.92">
           <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="360 250 250" dur="20s" repeatCount="indefinite" />
         </circle>
         <text x="348" y="244" fill="currentColor" fontSize="9.5" fontWeight="700" letterSpacing="0.14em">STRATEGY</text>
@@ -72,7 +72,7 @@ function OrbitalVisual() {
         <circle cx="250" cy="110" r="5.5" fill="currentColor" opacity="0.85" filter="url(#glow)">
           <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="32s" repeatCount="indefinite" />
         </circle>
-        <circle cx="250" cy="110" r="2.5" fill="#fff" opacity="0.88">
+        <circle cx="250" cy="110" r="2.5" fill="var(--color-accent-strong)" opacity="0.88">
           <animateTransform attributeName="transform" type="rotate" from="0 250 250" to="-360 250 250" dur="32s" repeatCount="indefinite" />
         </circle>
         <text x="262" y="104" fill="currentColor" fontSize="9.5" fontWeight="700" letterSpacing="0.14em" opacity="0.85">DESIGN</text>
@@ -86,7 +86,7 @@ function OrbitalVisual() {
         <circle cx="250" cy="250" r="24" fill="currentColor" opacity="0.07" filter="url(#softglow)" />
         <circle cx="250" cy="250" r="13" fill="currentColor" opacity="0.14" />
         <circle cx="250" cy="250" r="7" fill="currentColor" opacity="0.9" filter="url(#glow)" />
-        <circle cx="250" cy="250" r="3.5" fill="#fff" opacity="0.96" />
+        <circle cx="250" cy="250" r="3.5" fill="var(--color-accent-strong)" opacity="0.96" />
       </svg>
     </div>
   );
@@ -125,7 +125,7 @@ function ServiceIcon({ index, active }: { index: number; active: boolean }) {
   ];
   return (
     <motion.div
-      animate={{ color: active ? "var(--color-accent)" : "rgba(255,255,255,0.22)" }}
+      animate={{ color: active ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}
       transition={{ duration: 0.3 }}
       style={{ lineHeight: 0, flexShrink: 0 }}
     >
@@ -150,11 +150,11 @@ function ServiceRow({
       onMouseLeave={() => setHovered(false)}
       animate={{
         backgroundColor: hovered
-          ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))"
-          : "var(--color-surface, #0c0a07)",
+          ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))"
+          : "var(--color-surface)",
         borderColor: hovered
-          ? "color-mix(in srgb, var(--color-accent) 25%, rgba(255,255,255,0.07))"
-          : "rgba(255,255,255,0.07)",
+          ? "color-mix(in srgb, var(--color-accent) 25%, var(--color-divider))"
+          : "var(--color-divider)",
       }}
       transition={{ duration: 0.3 }}
       className={styles.serviceRow}
@@ -177,7 +177,7 @@ function ServiceRow({
       {/* Index + icon column */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.75rem", paddingTop: "0.2rem" }}>
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.12)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "var(--color-divider)" }}
           transition={{ duration: 0.3 }}
           style={{
             fontSize: "2.5rem",
@@ -195,7 +195,7 @@ function ServiceRow({
       {/* Title + description */}
       <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
         <motion.p
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.3)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 65%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.24em", textTransform: "uppercase", margin: 0 }}
         >
@@ -213,7 +213,7 @@ function ServiceRow({
         >
           {service.title}
         </h2>
-        <p style={{ fontSize: 14, lineHeight: 1.85, color: "var(--color-muted, #777)", margin: 0 }}>
+        <p style={{ fontSize: 14, lineHeight: 1.85, color: "var(--color-muted)", margin: 0 }}>
           {service.description}
         </p>
       </div>
@@ -221,7 +221,7 @@ function ServiceRow({
       {/* Deliverables */}
       <div className={styles.deliverables}>
         <motion.p
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.2)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", marginBottom: "0.85rem" }}
         >
@@ -229,9 +229,9 @@ function ServiceRow({
         </motion.p>
         <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.65rem" }}>
           {service.deliverables.map((item: string) => (
-            <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13.5, color: "var(--color-muted, #777)", lineHeight: 1.65 }}>
+            <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13.5, color: "var(--color-muted)", lineHeight: 1.65 }}>
               <motion.span
-                animate={{ opacity: hovered ? 1 : 0.3, backgroundColor: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.3)" }}
+                animate={{ opacity: hovered ? 1 : 0.3, backgroundColor: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 65%, transparent)" }}
                 transition={{ duration: 0.3 }}
                 style={{ flexShrink: 0, marginTop: 7, width: 4, height: 4, borderRadius: "50%", display: "inline-block" }}
               />
@@ -317,7 +317,7 @@ export default function ServicesPage() {
             {/* Body */}
             <motion.p
               variants={fadeUp}
-              style={{ fontSize: 15, lineHeight: 1.85, color: "var(--color-muted, #777)", maxWidth: "42ch", margin: 0 }}
+              style={{ fontSize: 15, lineHeight: 1.85, color: "var(--color-muted)", maxWidth: "42ch", margin: 0 }}
             >
               Strategy, design, and engineering delivered as a single continuous motion — no handoffs, no silos, no lost context.
             </motion.p>
@@ -333,7 +333,7 @@ export default function ServicesPage() {
                   <p style={{ fontSize: "clamp(1.75rem, 3vw, 2.5rem)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--foreground)", margin: 0, lineHeight: 1 }}>
                     {s.value}
                   </p>
-                  <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-muted, #666)", margin: 0 }}>
+                  <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-muted)", margin: 0 }}>
                     {s.label}
                   </p>
                 </div>
@@ -348,7 +348,7 @@ export default function ServicesPage() {
                   display: "inline-flex", alignItems: "center", gap: 9,
                   fontSize: 11, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase",
                   color: "var(--background)", background: "var(--color-accent)",
-                  border: "1px solid var(--color-accent)", borderRadius: 2,
+                  border: "1px solid var(--color-accent)", borderRadius: 16,
                   padding: "0.9rem 1.75rem", textDecoration: "none",
                   transition: "opacity 0.2s",
                 }}
@@ -365,12 +365,12 @@ export default function ServicesPage() {
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 9,
                   fontSize: 11, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase",
-                  color: "var(--color-accent)", border: "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: 2, padding: "0.9rem 1.75rem", textDecoration: "none",
+                  color: "var(--color-accent)", border: "1px solid var(--color-divider)",
+                  borderRadius: 16, padding: "0.9rem 1.75rem", textDecoration: "none",
                   transition: "border-color 0.2s",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "color-mix(in srgb, var(--color-accent) 45%, transparent)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--color-divider)")}
               >
                 See our work
               </Link>
@@ -389,7 +389,7 @@ export default function ServicesPage() {
         initial={{ scaleX: 0 }}
         animate={heroInView ? { scaleX: 1 } : {}}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        style={{ height: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.08), transparent)", transformOrigin: "left" }}
+        style={{ height: 1, background: "linear-gradient(90deg, var(--color-divider), transparent)", transformOrigin: "left" }}
       />
 
       {/* ── Services list ── */}
@@ -430,13 +430,13 @@ export default function ServicesPage() {
 
               <motion.p
                 variants={fadeUp}
-                style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted, #666)", maxWidth: "38ch", margin: 0 }}
+                style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted)", maxWidth: "38ch", margin: 0 }}
               >
                 Each service is designed to interlock — so you can start anywhere and scale without friction.
               </motion.p>
             </div>
 
-            <motion.div variants={lineReveal} style={{ height: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.1), transparent)", transformOrigin: "left" }} />
+            <motion.div variants={lineReveal} style={{ height: 1, background: "linear-gradient(90deg, var(--color-divider), transparent)", transformOrigin: "left" }} />
           </motion.div>
 
           {/* Rows */}
@@ -449,9 +449,9 @@ export default function ServicesPage() {
               display: "flex",
               flexDirection: "column",
               gap: "1.5px",
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.07)",
-              borderRadius: 2,
+              background: "var(--color-divider)",
+              border: "1px solid var(--color-divider)",
+              borderRadius: 16,
               overflow: "hidden",
             }}
           >
@@ -465,7 +465,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Divider ── */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.06)", maxWidth: 1240, margin: "0 auto" }} />
+      <div style={{ height: 1, background: "var(--color-divider)", maxWidth: 1240, margin: "0 auto" }} />
 
       {/* ── CTA ── */}
       <section style={{ paddingBlock: "6rem 7rem", position: "relative" }} ref={ctaRef}>
@@ -486,10 +486,10 @@ export default function ServicesPage() {
             variants={fadeUp}
             style={{
               position: "relative",
-              border: "1px solid color-mix(in srgb, var(--color-accent) 20%, rgba(255,255,255,0.07))",
-              borderRadius: 2,
+              border: "1px solid color-mix(in srgb, var(--color-accent) 20%, var(--color-divider))",
+              borderRadius: 16,
               overflow: "hidden",
-              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface))",
             }}
           >
             {/* Top accent sweep */}
@@ -544,13 +544,13 @@ export default function ServicesPage() {
                       worth shipping.
                     </em>
                   </h2>
-                  <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--color-muted, #777)", margin: 0, maxWidth: "40ch" }}>
+                  <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--color-muted)", margin: 0, maxWidth: "40ch" }}>
                     Tell us where you are and where you want to go. We&apos;ll map the fastest honest path.
                   </p>
                 </div>
 
                 {/* Right */}
-                <div style={{ paddingLeft: "3rem", borderLeft: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", gap: "2rem" }}>
+                <div style={{ paddingLeft: "3rem", borderLeft: "1px solid var(--color-divider)", display: "flex", flexDirection: "column", gap: "2rem" }}>
                   <span style={{
                     fontSize: "clamp(4rem, 7vw, 6rem)",
                     fontWeight: 800, letterSpacing: "-0.06em", lineHeight: 1,
@@ -565,7 +565,7 @@ export default function ServicesPage() {
                     <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.25, color: "var(--foreground)", margin: 0 }}>
                       Book a 30-minute<br />discovery call
                     </p>
-                    <p style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted, #666)", margin: 0 }}>
+                    <p style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted)", margin: 0 }}>
                       No commitment. We&apos;ll scope the challenge, outline a path, and tell you honestly if we&apos;re the right fit.
                     </p>
                   </div>
@@ -581,7 +581,7 @@ export default function ServicesPage() {
                         color: ctaHovered ? "var(--color-accent)" : "var(--background)",
                         background: ctaHovered ? "transparent" : "var(--color-accent)",
                         border: "1px solid var(--color-accent)",
-                        borderRadius: 2, padding: "1rem 2rem",
+                        borderRadius: 16, padding: "1rem 2rem",
                         textDecoration: "none", whiteSpace: "nowrap",
                         transition: "background 0.25s, color 0.25s",
                       }}
@@ -601,10 +601,10 @@ export default function ServicesPage() {
                     <Link href="/case-studies" style={{
                       display: "inline-flex", alignItems: "center", gap: 7,
                       fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase",
-                      color: "var(--color-muted, #555)", textDecoration: "none", transition: "color 0.2s",
+                      color: "var(--color-muted)", textDecoration: "none", transition: "color 0.2s",
                     }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-accent)")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted, #555)")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted)")}
                     >
                       Or explore our work first
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -618,13 +618,13 @@ export default function ServicesPage() {
               {/* Footer row */}
               <div style={{
                 marginTop: "3.5rem", paddingTop: "1.75rem",
-                borderTop: "1px solid rgba(255,255,255,0.06)",
+                borderTop: "1px solid var(--color-divider)",
                 display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem",
               }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.15)" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 45%, transparent)" }}>
                   Xevnex · Product studio
                 </span>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.12)" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "var(--color-divider)" }}>
                   Typically respond within 24h
                 </span>
               </div>

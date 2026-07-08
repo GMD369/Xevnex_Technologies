@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Syne, Manrope, JetBrains_Mono } from "next/font/google";
+import { Arimo, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 
-const syne = Syne({
+const arimo = Arimo({
   variable: "--font-cormorant",
   subsets: ["latin"],
   weight: ["700"],
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${syne.variable} ${manrope.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${arimo.variable} ${manrope.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[var(--background)] text-[var(--foreground)]">
         <div className="relative flex min-h-screen flex-col">

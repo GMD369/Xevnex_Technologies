@@ -23,7 +23,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
         style={{
           position: "relative",
           overflow: "hidden",
-          borderBottom: "1px solid rgba(255,255,255,0.07)",
+          borderBottom: "1px solid var(--color-divider)",
           marginBottom: "5rem",
         }}
       >
@@ -45,12 +45,12 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             inset: 0,
             pointerEvents: "none",
             backgroundImage:
-              "repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.025) 40px)",
+              "repeating-linear-gradient(0deg, transparent, transparent 39px, var(--color-divider) 40px)",
           }}
         />
 
         <div
-          className="shell"
+          className="shell blog-post-hero"
           style={{
             position: "relative",
             zIndex: 1,
@@ -74,7 +74,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.3)",
+                color: "color-mix(in srgb, var(--color-muted) 65%, transparent)",
                 textDecoration: "none",
                 width: "fit-content",
                 transition: "color 0.2s",
@@ -129,7 +129,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 style={{
                   fontFamily: "var(--font-jetbrains-mono), monospace",
                   fontSize: 11,
-                  color: "rgba(255,255,255,0.25)",
+                  color: "color-mix(in srgb, var(--color-muted) 60%, transparent)",
                   letterSpacing: "0.06em",
                 }}
               >
@@ -184,7 +184,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 width: "fit-content",
                 background: "color-mix(in srgb, var(--color-accent) 6%, transparent)",
                 border: "1px solid color-mix(in srgb, var(--color-accent) 16%, transparent)",
-                borderRadius: 2,
+                borderRadius: 16,
                 padding: "0.6rem 1rem",
               }}
             >
@@ -210,7 +210,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
 
       {/* ── Body ── */}
       <div
-        className="shell"
+        className="shell blog-post-body"
         style={{
           padding: "0 1.5rem",
           display: "grid",
@@ -222,6 +222,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
 
         {/* Left sticky sidebar */}
         <div
+          className="blog-post-left-sidebar"
           style={{
             position: "sticky",
             top: "2rem",
@@ -238,13 +239,13 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 800,
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.2)",
+                color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
                 margin: "0 0 0.75rem",
               }}
             >
               Article
             </p>
-            <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,0.06)" }} />
+            <div style={{ width: "100%", height: 1, background: "var(--color-divider)" }} />
           </div>
 
           {/* Vertical accent line */}
@@ -269,7 +270,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
               style={{
                 fontSize: 11,
                 lineHeight: 1.7,
-                color: "rgba(255,255,255,0.2)",
+                color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
                 margin: 0,
                 fontStyle: "italic",
               }}
@@ -286,7 +287,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 800,
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.15)",
+                color: "color-mix(in srgb, var(--color-muted) 45%, transparent)",
                 margin: 0,
               }}
             >
@@ -302,7 +303,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                   border: "none",
                   padding: 0,
                   fontSize: 11,
-                  color: "rgba(255,255,255,0.22)",
+                  color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
                   cursor: "pointer",
                   fontFamily: "inherit",
                   letterSpacing: "0.01em",
@@ -344,7 +345,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             }}
           >
             <div style={{ width: 24, height: 1, background: "var(--color-accent)", opacity: 0.6 }} />
-            <div style={{ flex: 1, height: 1, background: "rgba(255,255,255,0.05)" }} />
+            <div style={{ flex: 1, height: 1, background: "var(--color-divider)" }} />
           </div>
 
           {/* Body paragraphs */}
@@ -396,7 +397,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
             style={{
               marginTop: "4rem",
               paddingTop: "2.5rem",
-              borderTop: "1px solid rgba(255,255,255,0.07)",
+              borderTop: "1px solid var(--color-divider)",
               display: "flex",
               alignItems: "center",
               gap: "1.5rem",
@@ -410,7 +411,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 gap: 10,
                 background: "color-mix(in srgb, var(--color-accent) 6%, transparent)",
                 border: "1px solid color-mix(in srgb, var(--color-accent) 18%, transparent)",
-                borderRadius: 2,
+                borderRadius: 16,
                 padding: "0.65rem 1rem",
               }}
             >
@@ -453,7 +454,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.18)",
+                color: "color-mix(in srgb, var(--color-muted) 50%, transparent)",
               }}
             >
               xevnex.com
@@ -463,6 +464,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
 
         {/* Right sticky sidebar */}
         <div
+          className="blog-post-right-sidebar"
           style={{
             position: "sticky",
             top: "2rem",
@@ -478,13 +480,13 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 800,
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.2)",
+                color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
                 margin: "0 0 0.75rem",
               }}
             >
               More reading
             </p>
-            <div style={{ width: "100%", height: 1, background: "rgba(255,255,255,0.06)" }} />
+            <div style={{ width: "100%", height: 1, background: "var(--color-divider)" }} />
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -509,7 +511,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                   style={{
                     fontSize: 12,
                     lineHeight: 1.5,
-                    color: "rgba(255,255,255,0.45)",
+                    color: "var(--color-muted)",
                     fontWeight: 500,
                     letterSpacing: "-0.01em",
                     transition: "color 0.2s",
@@ -517,7 +519,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 >
                   {s.title}
                 </span>
-                <span style={{ fontSize: 11, color: "rgba(255,255,255,0.2)" }}>
+                <span style={{ fontSize: 11, color: "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}>
                   {s.readTime}
                 </span>
               </Link>
@@ -536,12 +538,13 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
         }}
       >
         <div
+          className="blog-post-cta"
           style={{
             position: "relative",
             overflow: "hidden",
-            border: "1px solid color-mix(in srgb, var(--color-accent) 18%, rgba(255,255,255,0.07))",
-            borderRadius: 2,
-            background: "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))",
+            border: "1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-divider))",
+            borderRadius: 16,
+            background: "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))",
             padding: "3.5rem",
             display: "flex",
             alignItems: "center",
@@ -625,10 +628,10 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 fontWeight: 700,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "rgba(255,255,255,0.4)",
+                color: "var(--color-muted)",
                 textDecoration: "none",
-                border: "1px solid rgba(255,255,255,0.1)",
-                borderRadius: 2,
+                border: "1px solid var(--color-divider)",
+                borderRadius: 16,
                 padding: "0.9rem 1.75rem",
                 transition: "color 0.25s, border-color 0.25s",
               }}
@@ -649,7 +652,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
                 color: "var(--background)",
                 background: "var(--color-accent)",
                 border: "1px solid var(--color-accent)",
-                borderRadius: 2,
+                borderRadius: 16,
                 padding: "0.9rem 2rem",
                 textDecoration: "none",
                 transition: "background 0.25s, color 0.25s",

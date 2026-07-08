@@ -28,20 +28,17 @@ export function Navbar() {
   const mainLinks = navLinks.filter((item) => item.href !== "/contact");
 
   return (
-    <header className="sticky top-0 z-50 px-4 py-4">
-      <div
-        className={cn(
-          "shell flex items-center justify-between rounded-full border px-5 py-3 transition-all duration-300",
-          scrolled
-            ? "border-accent bg-surface shadow-[0_4px_32px_rgba(201,148,58,0.12)] backdrop-blur-md"
-            : "border-transparent bg-background backdrop-blur-sm",
-        )}
-      >
+    <header
+      className={cn(
+        "sticky top-0 z-50 border-b bg-background transition-shadow duration-200",
+        scrolled ? "border-divider shadow-[0_1px_0_rgba(15,42,74,0.04)]" : "border-divider",
+      )}
+    >
+      <div className="shell flex items-center justify-between py-4">
         {/* Logo */}
         <Link
           href="/"
-          className="text-sm font-medium uppercase tracking-[0.12em] transition-opacity hover:opacity-80"
-          style={{ color: "#fff" }}
+          className="text-base font-bold tracking-[-0.01em] text-foreground transition-opacity hover:opacity-80"
         >
           Xevnex Technologies
         </Link>
@@ -58,10 +55,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full border px-4 py-1.5 text-xs font-medium uppercase tracking-[0.1em] transition-all duration-200",
+                  "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
                   active
-                    ? "border-accent bg-accent/10 text-accent"
-                    : "border-transparent text-foreground hover:text-accent",
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent",
                 )}
               >
                 {item.label}
@@ -71,7 +68,8 @@ export function Navbar() {
 
           <Link
             href="/contact"
-            className="ml-2 rounded-full border border-accent px-5 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-accent transition-all duration-200 hover:bg-accent hover:text-background"
+            className="ml-3 rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors duration-200"
+            style={{ background: "var(--color-accent)" }}
           >
             Let&apos;s Talk
           </Link>
@@ -83,7 +81,7 @@ export function Navbar() {
           aria-label={menuOpen ? "Close menu" : "Open menu"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((prev) => !prev)}
-          className="relative flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full border border-accent/40 transition-all duration-200 hover:border-accent md:hidden"
+          className="relative flex h-9 w-9 flex-col items-center justify-center gap-[5px] rounded-full border border-divider transition-all duration-200 hover:border-accent md:hidden"
         >
           <span
             className={cn(
@@ -109,13 +107,13 @@ export function Navbar() {
       {/* Mobile Dropdown Menu */}
       <div
         className={cn(
-          "shell mt-2 overflow-hidden rounded-2xl border border-accent/30 bg-surface/95 backdrop-blur-md transition-all duration-300 ease-in-out md:hidden",
+          "overflow-hidden border-t border-divider bg-background transition-all duration-300 ease-in-out md:hidden",
           menuOpen
-            ? "max-h-[400px] opacity-100 translate-y-0"
-            : "max-h-0 opacity-0 -translate-y-2 pointer-events-none border-transparent",
+            ? "max-h-[400px] opacity-100"
+            : "max-h-0 opacity-0 pointer-events-none border-transparent",
         )}
       >
-        <nav className="flex flex-col px-2 py-3">
+        <nav className="shell flex flex-col py-3">
           {mainLinks.map((item) => {
             const active =
               pathname === item.href ||
@@ -127,10 +125,10 @@ export function Navbar() {
                 href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className={cn(
-                  "rounded-xl px-4 py-3 text-sm font-medium uppercase tracking-[0.1em] transition-all duration-150",
+                  "rounded-xl px-4 py-3 text-sm font-medium transition-colors duration-150",
                   active
-                    ? "bg-accent/10 text-accent"
-                    : "text-foreground hover:bg-accent/5 hover:text-accent",
+                    ? "bg-surface text-accent"
+                    : "text-foreground hover:bg-surface hover:text-accent",
                 )}
               >
                 {item.label}
@@ -138,12 +136,13 @@ export function Navbar() {
             );
           })}
 
-          <div className="mx-4 my-2 h-px bg-accent/15" />
+          <div className="mx-4 my-2 h-px bg-divider" />
 
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="mx-2 rounded-full border border-accent px-4 py-2.5 text-center text-sm font-medium uppercase tracking-[0.1em] text-accent transition-all duration-200 hover:bg-accent hover:text-background"
+            className="mx-2 rounded-full px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors duration-200"
+            style={{ background: "var(--color-accent)" }}
           >
             Let&apos;s Talk
           </Link>

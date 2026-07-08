@@ -70,7 +70,7 @@ function StepIcon({ index, active }: { index: number; active: boolean }) {
   return (
     <motion.div
       animate={{
-        color: active ? "var(--color-accent)" : "rgba(255,255,255,0.3)",
+        color: active ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 60%, transparent)",
       }}
       transition={{ duration: 0.3 }}
       style={{ lineHeight: 0, flexShrink: 0 }}
@@ -126,7 +126,7 @@ function ProcessStep({
           animate={{
             borderColor: isActive
               ? "var(--color-accent)"
-              : "rgba(255,255,255,0.12)",
+              : "var(--color-divider)",
             backgroundColor: isActive
               ? "color-mix(in srgb, var(--color-accent) 15%, transparent)"
               : "transparent",
@@ -137,7 +137,7 @@ function ProcessStep({
             width: 40,
             height: 40,
             borderRadius: "50%",
-            border: "1px solid rgba(255,255,255,0.12)",
+            border: "1px solid var(--color-divider)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -177,8 +177,8 @@ function ProcessStep({
               width: 1,
               marginTop: 4,
               background: isActive
-                ? "linear-gradient(to bottom, var(--color-accent), rgba(255,255,255,0.06))"
-                : "rgba(255,255,255,0.06)",
+                ? "linear-gradient(to bottom, var(--color-accent), var(--color-divider))"
+                : "var(--color-divider)",
               transition: "background 0.5s ease",
               minHeight: "3rem",
             }}
@@ -191,7 +191,7 @@ function ProcessStep({
         {/* Step label */}
         <motion.p
           animate={{
-            color: isActive ? "var(--color-accent)" : "rgba(255,255,255,0.2)",
+            color: isActive ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 55%, transparent)",
           }}
           transition={{ duration: 0.3 }}
           style={{
@@ -208,7 +208,7 @@ function ProcessStep({
         {/* Title */}
         <motion.h3
           animate={{
-            color: isActive ? "var(--foreground)" : "rgba(255,255,255,0.75)",
+            color: isActive ? "var(--foreground)" : "var(--color-muted)",
           }}
           transition={{ duration: 0.3 }}
           style={{
@@ -234,7 +234,7 @@ function ProcessStep({
               style={{
                 fontSize: 13.5,
                 lineHeight: 1.85,
-                color: "var(--color-muted, #777)",
+                color: "var(--color-muted)",
                 margin: 0,
                 overflow: "hidden",
               }}
@@ -388,7 +388,7 @@ export function ProcessSection() {
               style={{
                 fontSize: 14,
                 lineHeight: 1.85,
-                color: "var(--color-muted, #666)",
+                color: "var(--color-muted)",
                 maxWidth: "38ch",
                 margin: 0,
               }}
@@ -402,7 +402,7 @@ export function ProcessSection() {
             style={{
               height: 1,
               background:
-                "linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%)",
+                "linear-gradient(90deg, var(--color-divider) 0%, transparent 100%)",
               transformOrigin: "left",
             }}
           />
@@ -457,11 +457,11 @@ export function ProcessSection() {
                   style={{
                     position: "relative",
                     border:
-                      "1px solid color-mix(in srgb, var(--color-accent) 22%, rgba(255,255,255,0.07))",
-                    borderRadius: 2,
+                      "1px solid color-mix(in srgb, var(--color-accent) 22%, var(--color-divider))",
+                    borderRadius: 16,
                     padding: "2.5rem",
                     background:
-                      "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+                      "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface))",
                     overflow: "hidden",
                   }}
                 >
@@ -557,7 +557,7 @@ export function ProcessSection() {
                       style={{
                         fontSize: 14.5,
                         lineHeight: 1.85,
-                        color: "var(--color-muted, #777)",
+                        color: "var(--color-muted)",
                         margin: 0,
                       }}
                     >
@@ -584,12 +584,12 @@ export function ProcessSection() {
                               ? "var(--color-accent)"
                               : i < activeIndex
                               ? "color-mix(in srgb, var(--color-accent) 35%, transparent)"
-                              : "rgba(255,255,255,0.1)",
+                              : "var(--color-divider)",
                         }}
                         transition={{ duration: 0.35 }}
                         style={{
                           height: 4,
-                          borderRadius: 2,
+                          borderRadius: 16,
                         }}
                       />
                     ))}
@@ -619,8 +619,8 @@ export function ProcessSection() {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
                   style={{
-                    border: "1px solid rgba(255,255,255,0.05)",
-                    borderRadius: 2,
+                    border: "1px solid var(--color-divider)",
+                    borderRadius: 16,
                     padding: "2.5rem",
                     display: "flex",
                     flexDirection: "column",
@@ -650,7 +650,7 @@ export function ProcessSection() {
                       fontWeight: 600,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color: "rgba(255,255,255,0.18)",
+                      color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
                       margin: 0,
                     }}
                   >
@@ -674,7 +674,7 @@ export function ProcessSection() {
             justifyContent: "space-between",
             marginTop: "4rem",
             paddingTop: "2rem",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--color-divider)",
           }}
         >
           <span
@@ -683,7 +683,7 @@ export function ProcessSection() {
               fontWeight: 600,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "var(--color-muted, #555)",
+              color: "var(--color-muted)",
             }}
           >
             {processSteps.length} steps · delivery timeline based on project scope
@@ -699,7 +699,7 @@ export function ProcessSection() {
               fontWeight: 800,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "var(--color-muted, #555)",
+              color: "var(--color-muted)",
               textDecoration: "none",
               transition: "color 0.25s",
             }}
@@ -707,7 +707,7 @@ export function ProcessSection() {
               ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-accent)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted, #555)")
+              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted)")
             }
           >
             See full process

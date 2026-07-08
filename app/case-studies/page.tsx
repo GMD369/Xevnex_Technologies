@@ -194,7 +194,7 @@ function FeaturedCard({
       style={{
         display: "flex",
         flexDirection: "column",
-        borderRadius: 2,
+        borderRadius: 16,
         overflow: "hidden",
         border: `1px solid ${hovered ? "color-mix(in srgb, var(--color-accent) 40%, transparent)" : "var(--color-divider)"}`,
         background: "var(--color-surface)",
@@ -669,7 +669,7 @@ function ProjectRow({
           </span>
           <div style={{ display: "flex", gap: "0.35rem", flexWrap: "wrap" }}>
             {project.tags.map((tag) => (
-              <span key={tag} style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: ACCENT, border: "1px solid var(--color-divider)", borderRadius: 2, padding: "0.15rem 0.45rem" }}>
+              <span key={tag} style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: ACCENT, border: "1px solid var(--color-divider)", borderRadius: 16, padding: "0.15rem 0.45rem" }}>
                 {tag}
               </span>
             ))}
@@ -747,7 +747,7 @@ function ProjectRow({
                       ? "color-mix(in srgb, var(--color-accent) 30%, transparent)"
                       : "var(--color-divider)"
                   }`,
-                  borderRadius: 2,
+                  borderRadius: 16,
                   padding: "0.15rem 0.5rem",
                   transition: "color 0.3s, border-color 0.3s",
                 }}
@@ -937,7 +937,7 @@ export default function CaseStudiesPage() {
                 gap: "1.5px",
                 background: "var(--color-divider)",
                 border: "1px solid var(--color-divider)",
-                borderRadius: 2,
+                borderRadius: 16,
                 overflow: "hidden",
               }}
             >
@@ -998,7 +998,7 @@ export default function CaseStudiesPage() {
               color: "var(--background)",
               background: ACCENT,
               border: `1px solid ${ACCENT}`,
-              borderRadius: 2,
+              borderRadius: 16,
               padding: "0.875rem 1.75rem",
               textDecoration: "none",
               whiteSpace: "nowrap",

@@ -66,7 +66,7 @@ function MetricChip({
           fontWeight: 600,
           letterSpacing: "0.14em",
           textTransform: "uppercase",
-          color: "var(--color-muted, #666)",
+          color: "var(--color-muted)",
         }}
       >
         {label}
@@ -92,16 +92,16 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
           animate={{
             borderColor: active
               ? "color-mix(in srgb, var(--color-accent) 40%, transparent)"
-              : "rgba(255,255,255,0.07)",
+              : "var(--color-divider)",
           }}
           transition={{ duration: 0.35 }}
           style={{
             position: "relative",
             height: "100%",
             minHeight: 560,
-            borderRadius: 2,
-            border: "1px solid rgba(255,255,255,0.07)",
-            background: "var(--color-surface, #0c0a07)",
+            borderRadius: 16,
+            border: "1px solid var(--color-divider)",
+            background: "var(--color-surface)",
             overflow: "hidden",
             display: "flex",
             flexDirection: "column",
@@ -167,16 +167,16 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
               alignItems: "center",
               justifyContent: "space-between",
               padding: "1.75rem 2.25rem",
-              borderBottom: "1px solid rgba(255,255,255,0.06)",
+              borderBottom: "1px solid var(--color-divider)",
             }}
           >
             {project.tags?.[0] && (
               <motion.span
                 animate={{
-                  color: active ? "var(--color-accent)" : "var(--color-muted, #555)",
+                  color: active ? "var(--color-accent)" : "var(--color-muted)",
                   borderColor: active
                     ? "color-mix(in srgb, var(--color-accent) 45%, transparent)"
-                    : "rgba(255,255,255,0.1)",
+                    : "var(--color-divider)",
                 }}
                 transition={{ duration: 0.3 }}
                 style={{
@@ -184,8 +184,8 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
                   fontWeight: 800,
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: 2,
+                  border: "1px solid var(--color-divider)",
+                  borderRadius: 16,
                   padding: "4px 11px",
                 }}
               >
@@ -197,7 +197,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
                 fontSize: 10,
                 fontWeight: 700,
                 letterSpacing: "0.12em",
-                color: "var(--color-muted, #444)",
+                color: "var(--color-muted)",
                 fontVariantNumeric: "tabular-nums",
               }}
             >
@@ -218,7 +218,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             }}
           >
             <motion.p
-              animate={{ color: active ? "var(--color-accent)" : "var(--color-muted, #555)" }}
+              animate={{ color: active ? "var(--color-accent)" : "var(--color-muted)" }}
               transition={{ duration: 0.3 }}
               style={{
                 fontSize: 9,
@@ -248,7 +248,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
               style={{
                 fontSize: 14,
                 lineHeight: 1.85,
-                color: "var(--color-muted, #666)",
+                color: "var(--color-muted)",
                 margin: 0,
                 maxWidth: "52ch",
               }}
@@ -294,7 +294,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
                   display: "flex",
                   gap: "2.5rem",
                   paddingTop: "1.5rem",
-                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderTop: "1px solid var(--color-divider)",
                   marginTop: "0.5rem",
                 }}
               >
@@ -348,17 +348,17 @@ function ListCard({
           className="case-study-list-card"
           animate={{
             backgroundColor: active
-              ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))"
-              : "var(--color-surface, #0c0a07)",
+              ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))"
+              : "var(--color-surface)",
             borderColor: active
               ? "color-mix(in srgb, var(--color-accent) 35%, transparent)"
-              : "rgba(255,255,255,0.07)",
+              : "var(--color-divider)",
           }}
           transition={{ duration: 0.3 }}
           style={{
             position: "relative",
-            border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 2,
+            border: "1px solid var(--color-divider)",
+            borderRadius: 16,
             padding: "1.75rem 2rem",
             overflow: "hidden",
           }}
@@ -397,7 +397,7 @@ function ListCard({
             {/* Index */}
             <motion.span
               animate={{
-                color: active ? "var(--color-accent)" : "rgba(255,255,255,0.15)",
+                color: active ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 45%, transparent)",
               }}
               transition={{ duration: 0.3 }}
               style={{
@@ -424,7 +424,7 @@ function ListCard({
               >
                 <motion.p
                   animate={{
-                    color: active ? "var(--color-accent)" : "var(--color-muted, #555)",
+                    color: active ? "var(--color-accent)" : "var(--color-muted)",
                   }}
                   transition={{ duration: 0.3 }}
                   style={{
@@ -443,10 +443,10 @@ function ListCard({
                     animate={{
                       color: active
                         ? "var(--color-accent)"
-                        : "var(--color-muted, #444)",
+                        : "var(--color-muted)",
                       borderColor: active
                         ? "color-mix(in srgb, var(--color-accent) 40%, transparent)"
-                        : "rgba(255,255,255,0.08)",
+                        : "var(--color-divider)",
                     }}
                     transition={{ duration: 0.3 }}
                     style={{
@@ -454,8 +454,8 @@ function ListCard({
                       fontWeight: 800,
                       letterSpacing: "0.18em",
                       textTransform: "uppercase",
-                      border: "1px solid rgba(255,255,255,0.08)",
-                      borderRadius: 2,
+                      border: "1px solid var(--color-divider)",
+                      borderRadius: 16,
                       padding: "3px 8px",
                       flexShrink: 0,
                     }}
@@ -482,7 +482,7 @@ function ListCard({
                 style={{
                   fontSize: 13,
                   lineHeight: 1.75,
-                  color: "var(--color-muted, #666)",
+                  color: "var(--color-muted)",
                   margin: 0,
                 }}
               >
@@ -498,7 +498,7 @@ function ListCard({
                     gap: "1.75rem",
                     marginTop: "0.5rem",
                     paddingTop: "1rem",
-                    borderTop: "1px solid rgba(255,255,255,0.06)",
+                    borderTop: "1px solid var(--color-divider)",
                   }}
                 >
                   {project.metrics.slice(0, 3).map((m, mi) => (
@@ -758,7 +758,7 @@ export function CaseStudiesSection() {
             style={{
               height: 1,
               background:
-                "linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%)",
+                "linear-gradient(90deg, var(--color-divider) 0%, transparent 100%)",
               transformOrigin: "left",
             }}
           />
@@ -808,7 +808,7 @@ export function CaseStudiesSection() {
             justifyContent: "space-between",
             marginTop: "3.5rem",
             paddingTop: "2rem",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--color-divider)",
           }}
         >
           <span
@@ -816,7 +816,7 @@ export function CaseStudiesSection() {
               fontSize: 11,
               fontWeight: 600,
               letterSpacing: "0.12em",
-              color: "var(--color-muted, #555)",
+              color: "var(--color-muted)",
               textTransform: "uppercase",
             }}
           >
@@ -833,7 +833,7 @@ export function CaseStudiesSection() {
               fontWeight: 800,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "var(--color-muted, #555)",
+              color: "var(--color-muted)",
               textDecoration: "none",
               transition: "color 0.25s",
             }}
@@ -841,7 +841,7 @@ export function CaseStudiesSection() {
               ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-accent)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted, #555)")
+              ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted)")
             }
           >
             Explore all case studies

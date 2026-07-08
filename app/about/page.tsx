@@ -102,7 +102,7 @@ function AboutVisual() {
         <circle cx="250" cy="200" r="28" fill="currentColor" opacity="0.06" filter="url(#aboutGlow)" />
         <circle cx="250" cy="200" r="16" fill="currentColor" opacity="0.1" />
         <circle cx="250" cy="200" r="8" fill="currentColor" opacity="0.9" filter="url(#aboutGlow)" />
-        <circle cx="250" cy="200" r="4" fill="#fff" opacity="0.95" />
+        <circle cx="250" cy="200" r="4" fill="var(--color-accent-strong)" opacity="0.95" />
         <text x="95" y="107" fill="currentColor" fontSize="9" fontWeight="700" letterSpacing="0.12em" opacity="0.7">STRATEGY</text>
         <text x="370" y="107" fill="currentColor" fontSize="9" fontWeight="700" letterSpacing="0.12em" opacity="0.7">DESIGN</text>
         <text x="64" y="307" fill="currentColor" fontSize="9" fontWeight="700" letterSpacing="0.12em" opacity="0.6">ENGINEERING</text>
@@ -130,8 +130,8 @@ function PrincipleCard({ value, index }: { value: typeof values[0]; index: numbe
       onMouseLeave={() => setHovered(false)}
       animate={{
         backgroundColor: hovered
-          ? "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface, #0c0a07))"
-          : "var(--color-surface, #0c0a07)",
+          ? "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface))"
+          : "var(--color-surface)",
       }}
       transition={{ duration: 0.3 }}
       style={{ position: "relative", padding: "2.25rem 2rem", display: "flex", flexDirection: "column", gap: "1rem", cursor: "default" }}
@@ -146,14 +146,14 @@ function PrincipleCard({ value, index }: { value: typeof values[0]; index: numbe
       {/* Index + kicker row */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.18)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 50%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.24em", textTransform: "uppercase" }}
         >
           {value.kicker}
         </motion.span>
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.12)", opacity: hovered ? 1 : 0.6 }}
+          animate={{ color: hovered ? "var(--color-accent)" : "var(--color-divider)", opacity: hovered ? 1 : 0.6 }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 11, fontWeight: 800, fontVariantNumeric: "tabular-nums", letterSpacing: "0.1em" }}
         >
@@ -167,7 +167,7 @@ function PrincipleCard({ value, index }: { value: typeof values[0]; index: numbe
       </h3>
 
       {/* Body */}
-      <p style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted, #777)", margin: 0 }}>
+      <p style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted)", margin: 0 }}>
         {value.text}
       </p>
 
@@ -181,7 +181,7 @@ function PrincipleCard({ value, index }: { value: typeof values[0]; index: numbe
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             style={{ overflow: "hidden" }}
           >
-            <div style={{ paddingTop: "0.85rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+            <div style={{ paddingTop: "0.85rem", borderTop: "1px solid var(--color-divider)" }}>
               <p style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-accent)", margin: 0, fontStyle: "italic", opacity: 0.8 }}>
                 {value.detail}
               </p>
@@ -215,7 +215,7 @@ function TimelineItem({ item, index, total }: { item: typeof timeline[0]; index:
     >
       {/* Year */}
       <motion.span
-        animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.25)" }}
+        animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 60%, transparent)" }}
         transition={{ duration: 0.3 }}
         style={{ fontSize: 12, fontWeight: 800, letterSpacing: "0.1em", paddingTop: "0.35rem", fontVariantNumeric: "tabular-nums", textAlign: "right" }}
       >
@@ -226,16 +226,16 @@ function TimelineItem({ item, index, total }: { item: typeof timeline[0]; index:
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <motion.div
           animate={{
-            borderColor: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.12)",
+            borderColor: hovered ? "var(--color-accent)" : "var(--color-divider)",
             backgroundColor: hovered ? "color-mix(in srgb, var(--color-accent) 15%, transparent)" : "transparent",
           }}
           transition={{ duration: 0.3 }}
-          style={{ width: 12, height: 12, borderRadius: "50%", border: "1px solid rgba(255,255,255,0.12)", flexShrink: 0, zIndex: 1 }}
+          style={{ width: 12, height: 12, borderRadius: "50%", border: "1px solid var(--color-divider)", flexShrink: 0, zIndex: 1 }}
         />
         {!isLast && (
           <div style={{
             flex: 1, width: 1, marginTop: 4,
-            background: hovered ? "linear-gradient(to bottom, var(--color-accent), rgba(255,255,255,0.05))" : "rgba(255,255,255,0.05)",
+            background: hovered ? "linear-gradient(to bottom, var(--color-accent), var(--color-divider))" : "var(--color-divider)",
             transition: "background 0.4s ease", minHeight: "2.5rem",
           }} />
         )}
@@ -244,13 +244,13 @@ function TimelineItem({ item, index, total }: { item: typeof timeline[0]; index:
       {/* Content */}
       <div style={{ paddingBottom: isLast ? 0 : "2.25rem", paddingTop: "0.1rem" }}>
         <motion.p
-          animate={{ color: hovered ? "var(--foreground)" : "rgba(255,255,255,0.75)" }}
+          animate={{ color: hovered ? "var(--foreground)" : "var(--color-muted)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)", fontWeight: 700, letterSpacing: "-0.02em", margin: "0 0 0.4rem" }}
         >
           {item.event}
         </motion.p>
-        <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "var(--color-muted, #666)", margin: 0 }}>
+        <p style={{ fontSize: 13.5, lineHeight: 1.75, color: "var(--color-muted)", margin: 0 }}>
           {item.detail}
         </p>
       </div>
@@ -270,7 +270,7 @@ function DisciplineRow({ item, index, isLast }: { item: typeof disciplines[0]; i
       style={{ position: "relative" }}
     >
       <motion.div
-        animate={{ backgroundColor: hovered ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))" : "transparent" }}
+        animate={{ backgroundColor: hovered ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))" : "transparent" }}
         transition={{ duration: 0.3 }}
         style={{
           display: "grid", gridTemplateColumns: "2rem 1.5rem 1fr 1fr",
@@ -279,7 +279,7 @@ function DisciplineRow({ item, index, isLast }: { item: typeof disciplines[0]; i
         }}
       >
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.15)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 45%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.12em", fontVariantNumeric: "tabular-nums" }}
         >
@@ -287,7 +287,7 @@ function DisciplineRow({ item, index, isLast }: { item: typeof disciplines[0]; i
         </motion.span>
 
         <motion.div
-          animate={{ backgroundColor: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.12)" }}
+          animate={{ backgroundColor: hovered ? "var(--color-accent)" : "var(--color-divider)" }}
           transition={{ duration: 0.3 }}
           style={{ width: 6, height: 6, borderRadius: "50%" }}
         />
@@ -296,12 +296,12 @@ function DisciplineRow({ item, index, isLast }: { item: typeof disciplines[0]; i
           {item.label}
         </p>
 
-        <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--color-muted, #666)", margin: 0 }}>
+        <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--color-muted)", margin: 0 }}>
           {item.desc}
         </p>
       </motion.div>
 
-      {!isLast && <div style={{ height: 1, background: "rgba(255,255,255,0.05)", marginLeft: "1.5rem" }} />}
+      {!isLast && <div style={{ height: 1, background: "var(--color-divider)", marginLeft: "1.5rem" }} />}
 
       <motion.div
         animate={{ opacity: hovered ? 1 : 0, scaleX: hovered ? 1 : 0 }}
@@ -377,10 +377,10 @@ export default function AboutPage() {
 
             {/* Body copy */}
             <motion.div variants={fadeUp} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              <p style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted, #777)", margin: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted)", margin: 0 }}>
                 Xevnex Technologies helps startups and teams design, build, and scale AI-powered digital products with confidence.
               </p>
-              <p style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted, #777)", margin: 0 }}>
+              <p style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted)", margin: 0 }}>
                 Our core services include AI Product Development, AI Services, Web Development, App Development, UI/UX Design, and Architecture Design.
               </p>
             </motion.div>
@@ -393,7 +393,7 @@ export default function AboutPage() {
                   display: "inline-flex", alignItems: "center", gap: 9,
                   fontSize: 11, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase",
                   color: "var(--background)", background: "var(--color-accent)",
-                  border: "1px solid var(--color-accent)", borderRadius: 2,
+                  border: "1px solid var(--color-accent)", borderRadius: 16,
                   padding: "0.9rem 1.75rem", textDecoration: "none",
                   transition: "opacity 0.2s",
                 }}
@@ -410,12 +410,12 @@ export default function AboutPage() {
                 style={{
                   display: "inline-flex", alignItems: "center", gap: 9,
                   fontSize: 11, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase",
-                  color: "var(--color-accent)", border: "1px solid rgba(255,255,255,0.1)",
-                  borderRadius: 2, padding: "0.9rem 1.75rem", textDecoration: "none",
+                  color: "var(--color-accent)", border: "1px solid var(--color-divider)",
+                  borderRadius: 16, padding: "0.9rem 1.75rem", textDecoration: "none",
                   transition: "border-color 0.2s",
                 }}
                 onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "color-mix(in srgb, var(--color-accent) 45%, transparent)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.borderColor = "var(--color-divider)")}
               >
                 View case studies
               </Link>
@@ -434,7 +434,7 @@ export default function AboutPage() {
         initial={{ scaleX: 0 }}
         animate={heroInView ? { scaleX: 1 } : {}}
         transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-        style={{ height: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.08), transparent)", transformOrigin: "left", margin: "0" }}
+        style={{ height: 1, background: "linear-gradient(90deg, var(--color-divider), transparent)", transformOrigin: "left", margin: "0" }}
       />
 
       {/* ── Stats strip ── */}
@@ -456,7 +456,7 @@ export default function AboutPage() {
               <p style={{ fontSize: "clamp(2.25rem, 4vw, 3.25rem)", fontWeight: 700, letterSpacing: "-0.04em", color: "var(--foreground)", margin: 0, lineHeight: 1 }}>
                 <StatCounter value={s.value} />
               </p>
-              <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-muted, #555)", margin: 0, lineHeight: 1.5 }}>
+              <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--color-muted)", margin: 0, lineHeight: 1.5 }}>
                 {s.label}
               </p>
               {/* Accent under each stat */}
@@ -472,7 +472,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── Divider ── */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
+      <div style={{ height: 1, background: "var(--color-divider)" }} />
 
       {/* ── Two-column: timeline + disciplines ── */}
       <div className="shell" style={{ padding: "6rem 1.5rem" }}>
@@ -538,7 +538,7 @@ export default function AboutPage() {
                 <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>together.</em>
               </motion.h2>
 
-              <div style={{ border: "1px solid rgba(255,255,255,0.07)", borderRadius: 2, overflow: "hidden" }}>
+              <div style={{ border: "1px solid var(--color-divider)", borderRadius: 16, overflow: "hidden" }}>
                 {disciplines.map((item, i) => (
                   <DisciplineRow key={item.label} item={item} index={i} isLast={i === disciplines.length - 1} />
                 ))}
@@ -549,7 +549,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── Divider ── */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
+      <div style={{ height: 1, background: "var(--color-divider)" }} />
 
       {/* ── Principles ── */}
       <div ref={principlesRef} className="shell" style={{ padding: "6rem 1.5rem" }}>
@@ -582,7 +582,7 @@ export default function AboutPage() {
             </motion.h2>
             <motion.p
               variants={fadeUp}
-              style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted, #666)", maxWidth: "36ch", margin: 0 }}
+              style={{ fontSize: 13.5, lineHeight: 1.8, color: "var(--color-muted)", maxWidth: "36ch", margin: 0 }}
             >
               These principles shape how we deliver AI, web, app, UX, and architecture outcomes.
             </motion.p>
@@ -590,16 +590,16 @@ export default function AboutPage() {
 
           <motion.div
             variants={lineReveal}
-            style={{ height: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.1), transparent)", transformOrigin: "left", marginBottom: "0" }}
+            style={{ height: 1, background: "linear-gradient(90deg, var(--color-divider), transparent)", transformOrigin: "left", marginBottom: "0" }}
           />
 
           <div style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
             gap: "1.5px",
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 2, overflow: "hidden",
+            background: "var(--color-divider)",
+            border: "1px solid var(--color-divider)",
+            borderRadius: 16, overflow: "hidden",
           }}>
             {values.map((value, i) => (
               <PrincipleCard key={value.kicker} value={value} index={i} />
@@ -609,7 +609,7 @@ export default function AboutPage() {
       </div>
 
       {/* ── Divider ── */}
-      <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
+      <div style={{ height: 1, background: "var(--color-divider)" }} />
 
       {/* ── CTA strip ── */}
       <div ref={ctaRef} style={{ position: "relative" }}>
@@ -629,9 +629,9 @@ export default function AboutPage() {
             variants={fadeUp}
             style={{
               position: "relative",
-              border: "1px solid color-mix(in srgb, var(--color-accent) 20%, rgba(255,255,255,0.07))",
-              borderRadius: 2, overflow: "hidden",
-              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+              border: "1px solid color-mix(in srgb, var(--color-accent) 20%, var(--color-divider))",
+              borderRadius: 16, overflow: "hidden",
+              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface))",
             }}
           >
             {/* Top accent */}
@@ -672,13 +672,13 @@ export default function AboutPage() {
                     Let&apos;s build your next{" "}
                     <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>AI product.</em>
                   </h2>
-                  <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--color-muted, #777)", margin: 0, maxWidth: "38ch" }}>
+                  <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--color-muted)", margin: 0, maxWidth: "38ch" }}>
                     Share your goals and constraints. We&apos;ll recommend a practical roadmap and delivery approach tailored to your team.
                   </p>
                 </div>
 
                 {/* Right */}
-                <div style={{ paddingLeft: "3rem", borderLeft: "1px solid rgba(255,255,255,0.06)", display: "flex", flexDirection: "column", gap: "2rem" }}>
+                <div style={{ paddingLeft: "3rem", borderLeft: "1px solid var(--color-divider)", display: "flex", flexDirection: "column", gap: "2rem" }}>
                   <span style={{ fontSize: "clamp(4rem, 7vw, 6rem)", fontWeight: 800, letterSpacing: "-0.06em", lineHeight: 1, color: "color-mix(in srgb, var(--color-accent) 10%, transparent)", fontVariantNumeric: "tabular-nums", userSelect: "none" }}>
                     01
                   </span>
@@ -688,7 +688,7 @@ export default function AboutPage() {
                     <p style={{ fontSize: "clamp(1rem, 1.5vw, 1.15rem)", fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.25, color: "var(--foreground)", margin: 0 }}>
                       Contact the team for a<br />project discussion
                     </p>
-                    <p style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted, #666)", margin: 0 }}>
+                    <p style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted)", margin: 0 }}>
                       We&apos;ll review your scope, align on priorities, and propose the best next steps.
                     </p>
                   </div>
@@ -703,7 +703,7 @@ export default function AboutPage() {
                         fontSize: 11, fontWeight: 800, letterSpacing: "0.16em", textTransform: "uppercase",
                         color: ctaHovered ? "var(--color-accent)" : "var(--background)",
                         background: ctaHovered ? "transparent" : "var(--color-accent)",
-                        border: "1px solid var(--color-accent)", borderRadius: 2,
+                        border: "1px solid var(--color-accent)", borderRadius: 16,
                         padding: "1rem 2rem", textDecoration: "none", whiteSpace: "nowrap",
                         transition: "background 0.25s, color 0.25s",
                       }}
@@ -718,10 +718,10 @@ export default function AboutPage() {
                     <Link href="/services" style={{
                       display: "inline-flex", alignItems: "center", gap: 7,
                       fontSize: 10, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase",
-                      color: "var(--color-muted, #555)", textDecoration: "none", transition: "color 0.2s",
+                      color: "var(--color-muted)", textDecoration: "none", transition: "color 0.2s",
                     }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-accent)")}
-                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted, #555)")}
+                      onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.color = "var(--color-muted)")}
                     >
                       Explore our services
                       <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
@@ -733,11 +733,11 @@ export default function AboutPage() {
               </div>
 
               {/* Footer */}
-              <div style={{ marginTop: "3rem", paddingTop: "1.75rem", borderTop: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.15)" }}>
+              <div style={{ marginTop: "3rem", paddingTop: "1.75rem", borderTop: "1px solid var(--color-divider)", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 45%, transparent)" }}>
                   Xevnex Technologies
                 </span>
-                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "rgba(255,255,255,0.12)" }}>
+                <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: "var(--color-divider)" }}>
                   Typical response within 24 hours
                 </span>
               </div>

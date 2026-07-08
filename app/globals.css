@@ -2,30 +2,34 @@
 @import "../styles/animations.css";
 
 :root {
-  --background: #0a0610;
-  --foreground: #fdf5e0;
-  --color-surface: #120d1c;
-  --color-surface-strong: #1c1428;
-  --color-panel: #1c1428;
-  --color-panel-strong: #241c34;
-  --color-divider: #1c1428;
-  --color-accent: #b8901a;
-  --color-accent-strong: #d4a840;
-  --color-secondary: #d4a840;
-  --color-highlight: #fffbee;
-  --color-muted: #5a4020;
-  --shadow-soft: none;
+  --background: #ffffff;
+  --foreground: #0f2a4a;
+  --color-surface: #f6f8fb;
+  --color-surface-strong: #eef1f6;
+  --color-panel: #ffffff;
+  --color-panel-strong: #f6f8fb;
+  --color-divider: #e6e9ef;
+  --color-border: #e2e6ec;
+  --color-accent: #2563eb;
+  --color-accent-strong: #0f2a4a;
+  --color-secondary: #0f2a4a;
+  --color-highlight: #eaf2ff;
+  --color-muted: #64748b;
+  --color-error: #dc2626;
+  --shadow-soft: 0 10px 30px rgba(15, 42, 74, 0.08);
 }
 @theme inline {
-  --color-background: #0a0610;
-  --color-foreground: #fdf5e0;
-  --color-surface: #120d1c;
-  --color-panel: #1c1428;
-  --color-divider: #1c1428;
-  --color-accent: #b8901a;
-  --color-accent-strong: #d4a840;
-  --color-highlight: #fffbee;
-  --color-muted: #5a4020;
+  --color-background: #ffffff;
+  --color-foreground: #0f2a4a;
+  --color-surface: #f6f8fb;
+  --color-panel: #ffffff;
+  --color-divider: #e6e9ef;
+  --color-border: #e2e6ec;
+  --color-accent: #2563eb;
+  --color-accent-strong: #0f2a4a;
+  --color-highlight: #eaf2ff;
+  --color-muted: #64748b;
+  --color-error: #dc2626;
   --font-sans: var(--font-dm-sans);
   --font-mono: var(--font-jetbrains-mono);
 }
@@ -53,8 +57,8 @@ a {
 }
 
 ::selection {
-  background: rgba(201, 148, 58, 0.25);
-  color: var(--background);
+  background: rgba(37, 99, 235, 0.18);
+  color: var(--foreground);
 }
 
 .shell {
@@ -76,12 +80,12 @@ a {
 }
 
 .section-title {
-  max-width: 12ch;
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(2rem, 4vw, 3.75rem);
-  line-height: 0.98;
-  letter-spacing: 0.01em;
+  max-width: 14ch;
+  font-family: var(--font-cormorant), var(--font-dm-sans), sans-serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 
 .section-copy {
@@ -92,7 +96,8 @@ a {
 }
 
 .panel {
-  border: 0.5px solid var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
   background: var(--color-panel);
   box-shadow: var(--shadow-soft);
 }
@@ -107,10 +112,10 @@ a {
   inset: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(255, 243, 224, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 243, 224, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(15, 42, 74, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 42, 74, 0.03) 1px, transparent 1px);
   background-size: 38px 38px;
-  opacity: 0.45;
+  opacity: 0.6;
 }
 
 h1,
@@ -119,7 +124,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-cormorant), Georgia, serif;
+  font-family: var(--font-cormorant), var(--font-dm-sans), sans-serif;
+  font-weight: 700;
   color: var(--foreground);
 }
 

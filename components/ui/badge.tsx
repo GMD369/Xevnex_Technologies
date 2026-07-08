@@ -15,9 +15,9 @@ export function Badge({
   return (
     <span
       className={cn(
-        "inline-flex rounded-md border px-3 py-1 text-xs font-medium uppercase tracking-[0.1em]",
+        "inline-flex rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em]",
         variant === "primary"
-          ? "border-[var(--color-border)] bg-transparent text-[var(--color-accent)]"
+          ? "border-transparent bg-[var(--color-highlight)] text-[var(--color-accent)]"
           : "border-[var(--color-border)] bg-transparent text-[var(--color-muted)]",
         className,
       )}

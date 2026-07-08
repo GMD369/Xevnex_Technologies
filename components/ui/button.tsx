@@ -15,9 +15,9 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center rounded-md border px-5 py-3 text-sm font-medium uppercase tracking-[0.1em] transition-colors duration-200",
+        "inline-flex items-center justify-center rounded-full border px-6 py-3 text-sm font-semibold transition-colors duration-200",
         variant === "primary"
-          ? "border-[var(--color-accent)] bg-transparent text-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-[var(--background)]"
+          ? "border-[var(--color-accent)] bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-strong)] hover:border-[var(--color-accent-strong)]"
           : "border-[var(--color-border)] bg-transparent text-[var(--foreground)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]",
         className,
       )}

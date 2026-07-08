@@ -96,11 +96,11 @@ function Field({
   return (
     <label style={{ display: "flex", flexDirection: "column", gap: "0.55rem" }}>
       <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: "1rem" }}>
-        <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.4)" }}>
+        <span style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "var(--color-muted)" }}>
           {label}
         </span>
         {hint && (
-          <span style={{ fontSize: 10, color: "rgba(255,255,255,0.2)", fontStyle: "italic" }}>
+          <span style={{ fontSize: 10, color: "color-mix(in srgb, var(--color-muted) 55%, transparent)", fontStyle: "italic" }}>
             {hint}
           </span>
         )}
@@ -141,10 +141,10 @@ function TextInput({
         style={{
           width: "100%",
           background: isActive
-            ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))"
-            : "rgba(255,255,255,0.03)",
-          border: `1px solid ${isActive ? "color-mix(in srgb, var(--color-accent) 60%, transparent)" : "rgba(255,255,255,0.08)"}`,
-          borderRadius: 2,
+            ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))"
+            : "var(--color-divider)",
+          border: `1px solid ${isActive ? "color-mix(in srgb, var(--color-accent) 60%, transparent)" : "var(--color-divider)"}`,
+          borderRadius: 16,
           padding: "0.8rem 1rem",
           fontSize: 14,
           color: "var(--foreground)",
@@ -204,10 +204,10 @@ function TextArea({
         style={{
           width: "100%",
           background: isActive
-            ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface, #0c0a07))"
-            : "rgba(255,255,255,0.03)",
-          border: `1px solid ${isActive ? "color-mix(in srgb, var(--color-accent) 60%, transparent)" : "rgba(255,255,255,0.08)"}`,
-          borderRadius: 2,
+            ? "color-mix(in srgb, var(--color-accent) 4%, var(--color-surface))"
+            : "var(--color-divider)",
+          border: `1px solid ${isActive ? "color-mix(in srgb, var(--color-accent) 60%, transparent)" : "var(--color-divider)"}`,
+          borderRadius: 16,
           padding: "0.8rem 1rem",
           fontSize: 14,
           color: "var(--foreground)",
@@ -261,11 +261,11 @@ function PillSelector({
             animate={{
               borderColor: active
                 ? "var(--color-accent)"
-                : "rgba(255,255,255,0.08)",
+                : "var(--color-divider)",
               backgroundColor: active
                 ? "color-mix(in srgb, var(--color-accent) 12%, transparent)"
-                : "rgba(255,255,255,0.02)",
-              color: active ? "var(--color-accent)" : "rgba(255,255,255,0.45)",
+                : "var(--color-divider)",
+              color: active ? "var(--color-accent)" : "var(--color-muted)",
             }}
             transition={{ duration: 0.2 }}
             style={{
@@ -273,8 +273,8 @@ function PillSelector({
               fontWeight: 700,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              border: "1px solid rgba(255,255,255,0.08)",
-              borderRadius: 2,
+              border: "1px solid var(--color-divider)",
+              borderRadius: 16,
               padding: "6px 14px",
               cursor: "pointer",
               fontFamily: "inherit",
@@ -300,8 +300,8 @@ function MetaCard({ item, index }: { item: typeof meta[0]; index: number }) {
       onMouseLeave={() => setHovered(false)}
       animate={{
         backgroundColor: hovered
-          ? "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface, #0c0a07))"
-          : "var(--color-surface, #0c0a07)",
+          ? "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface))"
+          : "var(--color-surface)",
       }}
       transition={{ duration: 0.3 }}
       style={{ position: "relative", padding: "1.75rem 1.75rem", display: "flex", flexDirection: "column", gap: "0.75rem", cursor: "default" }}
@@ -316,21 +316,21 @@ function MetaCard({ item, index }: { item: typeof meta[0]; index: number }) {
       {/* Icon + kicker row */}
       <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
         <motion.div
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.25)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 60%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ lineHeight: 0, flexShrink: 0 }}
         >
           {item.icon}
         </motion.div>
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.3)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 65%, transparent)" }}
           transition={{ duration: 0.3 }}
           style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.24em", textTransform: "uppercase" }}
         >
           {item.kicker}
         </motion.span>
         <motion.span
-          animate={{ color: hovered ? "var(--color-accent)" : "rgba(255,255,255,0.1)" }}
+          animate={{ color: hovered ? "var(--color-accent)" : "var(--color-divider)" }}
           transition={{ duration: 0.3 }}
           style={{ marginLeft: "auto", fontSize: 10, fontWeight: 800, fontVariantNumeric: "tabular-nums", letterSpacing: "0.1em" }}
         >
@@ -351,7 +351,7 @@ function MetaCard({ item, index }: { item: typeof meta[0]; index: number }) {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-            style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted, #666)", margin: 0, overflow: "hidden", fontStyle: "italic" }}
+            style={{ fontSize: 13, lineHeight: 1.75, color: "var(--color-muted)", margin: 0, overflow: "hidden", fontStyle: "italic" }}
           >
             {item.detail}
           </motion.p>
@@ -468,7 +468,7 @@ export default function ContactPage() {
 
             <motion.p
               variants={fadeUp}
-              style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted, #777)", maxWidth: "38ch", margin: 0, alignSelf: "flex-end" }}
+              style={{ fontSize: 15, lineHeight: 1.9, color: "var(--color-muted)", maxWidth: "38ch", margin: 0, alignSelf: "flex-end" }}
             >
               Share a little context about your product, timeline, and goals.
               We&apos;ll follow up within one business day — no runaround.
@@ -478,7 +478,7 @@ export default function ContactPage() {
           {/* Divider */}
           <motion.div
             variants={lineReveal}
-            style={{ height: 1, background: "linear-gradient(90deg, rgba(255,255,255,0.1), transparent)", transformOrigin: "left" }}
+            style={{ height: 1, background: "linear-gradient(90deg, var(--color-divider), transparent)", transformOrigin: "left" }}
           />
         </motion.div>
       </div>
@@ -509,9 +509,9 @@ export default function ContactPage() {
                 style={{
                   display: "flex", flexDirection: "column",
                   gap: "1.5px",
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  borderRadius: 2, overflow: "hidden",
+                  background: "var(--color-divider)",
+                  border: "1px solid var(--color-divider)",
+                  borderRadius: 16, overflow: "hidden",
                 }}
               >
                 {meta.map((item, i) => (
@@ -525,7 +525,7 @@ export default function ContactPage() {
               display: "flex", alignItems: "center", gap: 10,
               background: "color-mix(in srgb, var(--color-accent) 6%, transparent)",
               border: "1px solid color-mix(in srgb, var(--color-accent) 18%, transparent)",
-              borderRadius: 2, padding: "1rem 1.25rem",
+              borderRadius: 16, padding: "1rem 1.25rem",
             }}>
               <span style={{ position: "relative", display: "flex", width: 8, height: 8, flexShrink: 0 }}>
                 <span style={{
@@ -542,7 +542,7 @@ export default function ContactPage() {
 
             {/* Contact details */}
             <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem", paddingTop: "0.5rem" }}>
-              <p style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", margin: "0 0 0.5rem" }}>
+              <p style={{ fontSize: 9, fontWeight: 800, letterSpacing: "0.22em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 55%, transparent)", margin: "0 0 0.5rem" }}>
                 Direct contact
               </p>
               {[
@@ -550,10 +550,10 @@ export default function ContactPage() {
                 { label: "Location", value: "Remote-first · Worldwide" },
               ].map((c) => (
                 <div key={c.label} style={{ display: "flex", gap: "1rem", alignItems: "baseline" }}>
-                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", flexShrink: 0, width: "4.5rem" }}>
+                  <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 55%, transparent)", flexShrink: 0, width: "4.5rem" }}>
                     {c.label}
                   </span>
-                  <span style={{ fontSize: 13, color: "var(--color-muted, #666)", letterSpacing: "0.01em" }}>
+                  <span style={{ fontSize: 13, color: "var(--color-muted)", letterSpacing: "0.01em" }}>
                     {c.value}
                   </span>
                 </div>
@@ -565,9 +565,9 @@ export default function ContactPage() {
           <motion.div variants={fadeUp}>
             <div style={{
               position: "relative",
-              border: "1px solid color-mix(in srgb, var(--color-accent) 18%, rgba(255,255,255,0.07))",
-              borderRadius: 2, overflow: "hidden",
-              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+              border: "1px solid color-mix(in srgb, var(--color-accent) 18%, var(--color-divider))",
+              borderRadius: 16, overflow: "hidden",
+              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface))",
             }}>
               {/* Top accent line */}
               <motion.div
@@ -627,7 +627,7 @@ export default function ContactPage() {
                         <p style={{ fontSize: "1.25rem", fontWeight: 700, letterSpacing: "-0.02em", color: "var(--foreground)", margin: "0 0 0.5rem" }}>
                           Message sent
                         </p>
-                        <p style={{ fontSize: 14, lineHeight: 1.75, color: "var(--color-muted, #666)", margin: 0, maxWidth: "32ch" }}>
+                        <p style={{ fontSize: 14, lineHeight: 1.75, color: "var(--color-muted)", margin: 0, maxWidth: "32ch" }}>
                           We&apos;ll review your brief and be in touch within one business day.
                         </p>
                       </div>
@@ -693,16 +693,16 @@ export default function ContactPage() {
                       </Field>
 
                       {/* Divider */}
-                      <div style={{ height: 1, background: "rgba(255,255,255,0.06)" }} />
+                      <div style={{ height: 1, background: "var(--color-divider)" }} />
 
                       {/* Error message */}
                       {submitError && (
                         <p style={{
                           fontSize: 12, lineHeight: 1.65,
-                          color: "#ff6b6b",
-                          background: "rgba(255,107,107,0.08)",
-                          border: "1px solid rgba(255,107,107,0.2)",
-                          borderRadius: 2, padding: "0.65rem 1rem",
+                          color: "var(--color-error)",
+                          background: "color-mix(in srgb, var(--color-error) 8%, transparent)",
+                          border: "1px solid color-mix(in srgb, var(--color-error) 25%, transparent)",
+                          borderRadius: 16, padding: "0.65rem 1rem",
                           margin: 0,
                         }}>
                           {submitError}
@@ -722,7 +722,7 @@ export default function ContactPage() {
                             color: loading ? "var(--color-accent)" : submitHovered ? "var(--color-accent)" : "var(--background)",
                             background: loading ? "transparent" : submitHovered ? "transparent" : "var(--color-accent)",
                             border: "1px solid var(--color-accent)",
-                            borderRadius: 2, padding: "1rem 2rem",
+                            borderRadius: 16, padding: "1rem 2rem",
                             cursor: loading ? "not-allowed" : "pointer", fontFamily: "inherit",
                             opacity: loading ? 0.7 : 1,
                             transition: "background 0.25s, color 0.25s, opacity 0.25s",
@@ -750,7 +750,7 @@ export default function ContactPage() {
                             </>
                           )}
                         </button>
-                        <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>
+                        <p style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}>
                           No commitment · 100% confidential
                         </p>
                       </div>

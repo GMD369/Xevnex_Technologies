@@ -25,7 +25,7 @@ export default async function CaseStudyDetailPage(
         style={{
           position: "relative",
           overflow: "hidden",
-          borderBottom: "1px solid rgba(255,255,255,0.07)",
+          borderBottom: "1px solid var(--color-divider)",
           marginBottom: "5rem",
         }}
       >
@@ -37,7 +37,7 @@ export default async function CaseStudyDetailPage(
         {/* Grid texture */}
         <div style={{
           position: "absolute", inset: 0, pointerEvents: "none",
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
+          backgroundImage: "linear-gradient(var(--color-divider) 1px, transparent 1px), linear-gradient(90deg, var(--color-divider) 1px, transparent 1px)",
           backgroundSize: "60px 60px",
           maskImage: "radial-gradient(ellipse 80% 80% at 80% 50%, black, transparent)",
           WebkitMaskImage: "radial-gradient(ellipse 80% 80% at 80% 50%, black, transparent)",
@@ -58,7 +58,7 @@ export default async function CaseStudyDetailPage(
               style={{
                 display: "inline-flex", alignItems: "center", gap: 7,
                 fontSize: 10, fontWeight: 700, letterSpacing: "0.18em",
-                textTransform: "uppercase", color: "rgba(255,255,255,0.28)",
+                textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 60%, transparent)",
                 textDecoration: "none",
               }}
             >
@@ -67,8 +67,8 @@ export default async function CaseStudyDetailPage(
               </svg>
               Case studies
             </Link>
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.12)", letterSpacing: "0.1em" }}>/</span>
-            <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)" }}>
+            <span style={{ fontSize: 10, color: "var(--color-divider)", letterSpacing: "0.1em" }}>/</span>
+            <span style={{ fontSize: 10, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}>
               {project.client}
             </span>
           </div>
@@ -113,9 +113,9 @@ export default async function CaseStudyDetailPage(
                   <span key={tag} style={{
                     fontSize: 10, fontWeight: 700, letterSpacing: "0.14em",
                     textTransform: "uppercase",
-                    color: "rgba(255,255,255,0.4)",
-                    border: "1px solid rgba(255,255,255,0.08)",
-                    borderRadius: 2, padding: "5px 12px",
+                    color: "var(--color-muted)",
+                    border: "1px solid var(--color-divider)",
+                    borderRadius: 16, padding: "5px 12px",
                   }}>
                     {tag}
                   </span>
@@ -169,7 +169,7 @@ export default async function CaseStudyDetailPage(
                 <div style={{ width: 20, height: 1, background: "var(--color-accent)", opacity: 0.4 }} />
                 <span style={{
                   fontSize: 9, fontWeight: 800, letterSpacing: "0.24em",
-                  textTransform: "uppercase", color: "rgba(255,255,255,0.25)",
+                  textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 60%, transparent)",
                 }}>
                   The challenge
                 </span>
@@ -184,7 +184,7 @@ export default async function CaseStudyDetailPage(
             </div>
 
             {/* Divider */}
-            <div style={{ height: 1, background: "rgba(255,255,255,0.05)" }} />
+            <div style={{ height: 1, background: "var(--color-divider)" }} />
 
             {/* Approach */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -197,7 +197,7 @@ export default async function CaseStudyDetailPage(
                 <div style={{ width: 20, height: 1, background: "var(--color-accent)", opacity: 0.4 }} />
                 <span style={{
                   fontSize: 9, fontWeight: 800, letterSpacing: "0.24em",
-                  textTransform: "uppercase", color: "rgba(255,255,255,0.25)",
+                  textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 60%, transparent)",
                 }}>
                   Our approach
                 </span>
@@ -221,7 +221,7 @@ export default async function CaseStudyDetailPage(
             </div>
 
             {/* Divider */}
-            <div style={{ height: 1, background: "rgba(255,255,255,0.05)" }} />
+            <div style={{ height: 1, background: "var(--color-divider)" }} />
 
             {/* Outcome */}
             <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
@@ -234,7 +234,7 @@ export default async function CaseStudyDetailPage(
                 <div style={{ width: 20, height: 1, background: "var(--color-accent)", opacity: 0.4 }} />
                 <span style={{
                   fontSize: 9, fontWeight: 800, letterSpacing: "0.24em",
-                  textTransform: "uppercase", color: "rgba(255,255,255,0.25)",
+                  textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 60%, transparent)",
                 }}>
                   The outcome
                 </span>
@@ -254,15 +254,15 @@ export default async function CaseStudyDetailPage(
           <div style={{
             position: "sticky", top: "2rem",
             display: "flex", flexDirection: "column", gap: "1.5px",
-            background: "rgba(255,255,255,0.05)",
-            border: "1px solid rgba(255,255,255,0.07)",
-            borderRadius: 2, overflow: "hidden",
+            background: "var(--color-divider)",
+            border: "1px solid var(--color-divider)",
+            borderRadius: 16, overflow: "hidden",
           }}>
 
             {/* Results panel */}
             <div style={{
               padding: "2rem",
-              background: "var(--color-surface, #0c0a07)",
+              background: "var(--color-surface)",
               display: "flex", flexDirection: "column", gap: "1.25rem",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
@@ -281,7 +281,7 @@ export default async function CaseStudyDetailPage(
                     display: "flex", alignItems: "flex-start", gap: "0.875rem",
                     paddingBottom: "0.875rem",
                     borderBottom: i < project.results.length - 1
-                      ? "1px solid rgba(255,255,255,0.05)"
+                      ? "1px solid var(--color-divider)"
                       : "none",
                   }}>
                     <span style={{
@@ -305,7 +305,7 @@ export default async function CaseStudyDetailPage(
             {/* Services panel */}
             <div style={{
               padding: "2rem",
-              background: "var(--color-surface, #0c0a07)",
+              background: "var(--color-surface)",
               display: "flex", flexDirection: "column", gap: "1.25rem",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
@@ -325,7 +325,7 @@ export default async function CaseStudyDetailPage(
                     color: "var(--color-accent)",
                     background: "color-mix(in srgb, var(--color-accent) 10%, transparent)",
                     border: "1px solid color-mix(in srgb, var(--color-accent) 22%, transparent)",
-                    borderRadius: 2, padding: "5px 12px",
+                    borderRadius: 16, padding: "5px 12px",
                   }}>
                     {tag}
                   </span>
@@ -336,12 +336,12 @@ export default async function CaseStudyDetailPage(
             {/* CTA panel */}
             <div style={{
               padding: "2rem",
-              background: "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface, #0c0a07))",
+              background: "color-mix(in srgb, var(--color-accent) 5%, var(--color-surface))",
               display: "flex", flexDirection: "column", gap: "1rem",
             }}>
               <p style={{
                 fontSize: 13, lineHeight: 1.7,
-                color: "rgba(255,255,255,0.35)", margin: 0,
+                color: "color-mix(in srgb, var(--color-muted) 70%, transparent)", margin: 0,
               }}>
                 Want results like these for your product?
               </p>
@@ -354,7 +354,7 @@ export default async function CaseStudyDetailPage(
                   color: "var(--background)",
                   background: "var(--color-accent)",
                   border: "1px solid var(--color-accent)",
-                  borderRadius: 2, padding: "0.9rem 1.5rem",
+                  borderRadius: 16, padding: "0.9rem 1.5rem",
                   textDecoration: "none",
                 }}
               >
@@ -369,16 +369,16 @@ export default async function CaseStudyDetailPage(
         </div>
 
         {/* ── Next project band ── */}
-        <div style={{ paddingTop: "2rem", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+        <div style={{ paddingTop: "2rem", borderTop: "1px solid var(--color-divider)" }}>
           <Link
             href={`/case-studies/${nextProject.slug}`}
             style={{
               position: "relative", overflow: "hidden",
               display: "grid", gridTemplateColumns: "1fr auto",
               alignItems: "center", gap: "2rem",
-              border: "1px solid color-mix(in srgb, var(--color-accent) 15%, rgba(255,255,255,0.06))",
-              borderRadius: 2,
-              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+              border: "1px solid color-mix(in srgb, var(--color-accent) 15%, var(--color-divider))",
+              borderRadius: 16,
+              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface))",
               padding: "2.5rem 3rem",
               textDecoration: "none",
             }}
@@ -393,7 +393,7 @@ export default async function CaseStudyDetailPage(
             <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
               <span style={{
                 fontSize: 9, fontWeight: 800, letterSpacing: "0.24em",
-                textTransform: "uppercase", color: "rgba(255,255,255,0.2)",
+                textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 55%, transparent)",
               }}>
                 Next case study
               </span>

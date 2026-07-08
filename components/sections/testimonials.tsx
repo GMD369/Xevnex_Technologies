@@ -56,17 +56,17 @@ function AuthorInitials({ name, active }: { name: string; active: boolean }) {
       animate={{
         borderColor: active
           ? "var(--color-accent)"
-          : "rgba(255,255,255,0.1)",
+          : "var(--color-divider)",
         background: active
-          ? "color-mix(in srgb, var(--color-accent) 15%, var(--color-surface, #0c0a07))"
-          : "rgba(255,255,255,0.04)",
+          ? "color-mix(in srgb, var(--color-accent) 15%, var(--color-surface))"
+          : "var(--color-surface)",
       }}
       transition={{ duration: 0.3 }}
       style={{
         width: 42,
         height: 42,
         borderRadius: "50%",
-        border: "1px solid rgba(255,255,255,0.1)",
+        border: "1px solid var(--color-divider)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -74,7 +74,7 @@ function AuthorInitials({ name, active }: { name: string; active: boolean }) {
       }}
     >
       <motion.span
-        animate={{ color: active ? "var(--color-accent)" : "rgba(255,255,255,0.35)" }}
+        animate={{ color: active ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 65%, transparent)" }}
         transition={{ duration: 0.3 }}
         style={{
           fontSize: 12,
@@ -230,10 +230,10 @@ export function TestimonialsSection() {
               <span style={{ fontSize: 11, fontWeight: 800, letterSpacing: "0.12em", color: "var(--color-accent)", fontVariantNumeric: "tabular-nums" }}>
                 {String(active + 1).padStart(2, "0")}
               </span>
-              <span style={{ fontSize: 11, color: "rgba(255,255,255,0.18)", fontWeight: 600 }}>
+              <span style={{ fontSize: 11, color: "color-mix(in srgb, var(--color-muted) 50%, transparent)", fontWeight: 600 }}>
                 /
               </span>
-              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", color: "rgba(255,255,255,0.18)", fontVariantNumeric: "tabular-nums" }}>
+              <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", color: "color-mix(in srgb, var(--color-muted) 50%, transparent)", fontVariantNumeric: "tabular-nums" }}>
                 {String(testimonials.length).padStart(2, "0")}
               </span>
             </motion.div>
@@ -243,7 +243,7 @@ export function TestimonialsSection() {
             variants={lineVariants}
             style={{
               height: 1,
-              background: "linear-gradient(90deg, rgba(255,255,255,0.1) 0%, transparent 100%)",
+              background: "linear-gradient(90deg, var(--color-divider) 0%, transparent 100%)",
               transformOrigin: "left",
             }}
           />
@@ -267,10 +267,11 @@ export function TestimonialsSection() {
             className="testimonials-featured"
             style={{
               position: "relative",
-              border: "1px solid color-mix(in srgb, var(--color-accent) 18%, rgba(255,255,255,0.07))",
-              borderRadius: 2,
+              border: "1px solid var(--color-divider)",
+              borderRadius: 16,
               padding: "3.5rem",
-              background: "color-mix(in srgb, var(--color-accent) 3%, var(--color-surface, #0c0a07))",
+              background: "var(--background)",
+              boxShadow: "var(--shadow-soft)",
               overflow: "hidden",
               minHeight: 360,
               display: "flex",
@@ -278,59 +279,29 @@ export function TestimonialsSection() {
               justifyContent: "space-between",
             }}
           >
-            {/* BG glow */}
+            {/* Quote mark badge */}
             <div
               style={{
                 position: "absolute",
-                top: "-40%",
-                right: "-20%",
-                width: "60%",
-                height: "80%",
-                background: "radial-gradient(ellipse, color-mix(in srgb, var(--color-accent) 8%, transparent) 0%, transparent 70%)",
-                pointerEvents: "none",
-              }}
-            />
-
-            {/* Large decorative quote mark */}
-            <div
-              style={{
-                position: "absolute",
-                top: "1.5rem",
+                top: "2rem",
                 right: "2.5rem",
-                fontSize: "9rem",
-                lineHeight: 1,
-                fontFamily: "Georgia, 'Times New Roman', serif",
+                width: 36,
+                height: 36,
+                borderRadius: "50%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                background: "var(--color-highlight)",
                 color: "var(--color-accent)",
-                opacity: 0.07,
+                fontSize: "1.25rem",
+                fontWeight: 800,
+                lineHeight: 1,
                 userSelect: "none",
                 pointerEvents: "none",
-                fontStyle: "italic",
               }}
             >
               &quot;
             </div>
-
-            {/* Grid decoration */}
-            <svg
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                width: "35%",
-                height: "40%",
-                opacity: 0.05,
-                pointerEvents: "none",
-              }}
-              viewBox="0 0 120 120"
-              fill="none"
-            >
-              {Array.from({ length: 4 }).map((_, i) => (
-                <line key={`h${i}`} x1="0" y1={i * 40} x2="120" y2={i * 40} stroke="var(--color-accent)" strokeWidth="0.5" />
-              ))}
-              {Array.from({ length: 4 }).map((_, i) => (
-                <line key={`v${i}`} x1={i * 40} y1="0" x2={i * 40} y2="120" stroke="var(--color-accent)" strokeWidth="0.5" />
-              ))}
-            </svg>
 
             {/* Stars */}
             <div style={{ position: "relative" }}>
@@ -375,7 +346,7 @@ export function TestimonialsSection() {
                   alignItems: "center",
                   gap: "1rem",
                   paddingTop: "1.5rem",
-                  borderTop: "1px solid rgba(255,255,255,0.07)",
+                  borderTop: "1px solid var(--color-divider)",
                 }}
               >
                 <AuthorInitials name={current.name} active={true} />
@@ -403,14 +374,14 @@ export function TestimonialsSection() {
                       style={{
                         width: 36,
                         height: 36,
-                        borderRadius: 2,
-                        border: "1px solid rgba(255,255,255,0.1)",
+                        borderRadius: 16,
+                        border: "1px solid var(--color-divider)",
                         background: "transparent",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         cursor: "pointer",
-                        color: "var(--color-muted, #666)",
+                        color: "var(--color-muted)",
                         transition: "border-color 0.2s, color 0.2s",
                       }}
                       onMouseEnter={(e) => {
@@ -418,8 +389,8 @@ export function TestimonialsSection() {
                         (e.currentTarget as HTMLButtonElement).style.color = "var(--color-accent)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.1)";
-                        (e.currentTarget as HTMLButtonElement).style.color = "var(--color-muted, #666)";
+                        (e.currentTarget as HTMLButtonElement).style.borderColor = "var(--color-divider)";
+                        (e.currentTarget as HTMLButtonElement).style.color = "var(--color-muted)";
                       }}
                     >
                       <svg width="10" height="12" viewBox="0 0 10 12" fill="none">
@@ -439,7 +410,7 @@ export function TestimonialsSection() {
                 left: 0,
                 right: 0,
                 height: 2,
-                background: "rgba(255,255,255,0.05)",
+                background: "var(--color-divider)",
               }}
             >
               <motion.div
@@ -462,8 +433,8 @@ export function TestimonialsSection() {
             style={{
               display: "flex",
               flexDirection: "column",
-              border: "1px solid rgba(255,255,255,0.06)",
-              borderRadius: 2,
+              border: "1px solid var(--color-divider)",
+              borderRadius: 16,
               overflow: "hidden",
             }}
           >
@@ -474,7 +445,7 @@ export function TestimonialsSection() {
                 onClick={() => { setActive(i); resetTimer(); }}
                 animate={{
                   backgroundColor: active === i
-                    ? "color-mix(in srgb, var(--color-accent) 6%, var(--color-surface, #0c0a07))"
+                    ? "color-mix(in srgb, var(--color-accent) 6%, var(--color-surface))"
                     : "transparent",
                 }}
                 transition={{ duration: 0.3 }}
@@ -485,7 +456,7 @@ export function TestimonialsSection() {
                   padding: "1.25rem 1.5rem",
                   background: "transparent",
                   border: "none",
-                  borderBottom: i < testimonials.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none",
+                  borderBottom: i < testimonials.length - 1 ? "1px solid var(--color-divider)" : "none",
                   cursor: "pointer",
                   textAlign: "left",
                   position: "relative",
@@ -512,14 +483,14 @@ export function TestimonialsSection() {
 
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <motion.p
-                    animate={{ color: active === i ? "var(--foreground)" : "rgba(255,255,255,0.5)" }}
+                    animate={{ color: active === i ? "var(--foreground)" : "var(--color-muted)" }}
                     transition={{ duration: 0.3 }}
                     style={{ fontSize: 13, fontWeight: 700, letterSpacing: "-0.01em", margin: 0, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}
                   >
                     {t.name}
                   </motion.p>
                   <motion.p
-                    animate={{ color: active === i ? "var(--color-accent)" : "rgba(255,255,255,0.2)" }}
+                    animate={{ color: active === i ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 55%, transparent)" }}
                     transition={{ duration: 0.3 }}
                     style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", margin: "3px 0 0", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}
                   >
@@ -535,7 +506,7 @@ export function TestimonialsSection() {
                   style={{
                     fontSize: 11,
                     lineHeight: 1.5,
-                    color: "var(--color-muted, #666)",
+                    color: "var(--color-muted)",
                     margin: 0,
                     maxWidth: "10ch",
                     overflow: "hidden",
@@ -570,12 +541,12 @@ export function TestimonialsSection() {
               onClick={() => { setActive(i); resetTimer(); }}
               animate={{
                 width: active === i ? 28 : 6,
-                background: active === i ? "var(--color-accent)" : "rgba(255,255,255,0.15)",
+                background: active === i ? "var(--color-accent)" : "color-mix(in srgb, var(--color-muted) 45%, transparent)",
               }}
               transition={{ duration: 0.35 }}
               style={{
                 height: 4,
-                borderRadius: 2,
+                borderRadius: 16,
                 border: "none",
                 cursor: "pointer",
                 padding: 0,
@@ -596,13 +567,13 @@ export function TestimonialsSection() {
             justifyContent: "space-between",
             marginTop: "3rem",
             paddingTop: "2rem",
-            borderTop: "1px solid rgba(255,255,255,0.06)",
+            borderTop: "1px solid var(--color-divider)",
           }}
         >
-          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-muted, #555)" }}>
+          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--color-muted)" }}>
             {testimonials.length} trusted partner voices
           </span>
-          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "rgba(255,255,255,0.15)" }}>
+          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "color-mix(in srgb, var(--color-muted) 45%, transparent)" }}>
             Auto-advancing · 5s interval
           </span>
         </motion.div>
