@@ -98,7 +98,7 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
           style={{
             position: "relative",
             height: "100%",
-            minHeight: 560,
+            minHeight: 460,
             borderRadius: 16,
             border: "1px solid var(--color-divider)",
             background: "var(--color-surface)",
@@ -212,9 +212,9 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
               flex: 1,
               display: "flex",
               flexDirection: "column",
-              justifyContent: "flex-end",
-              padding: "2.5rem 2.25rem 2.25rem",
-              gap: "1.25rem",
+              justifyContent: "flex-start",
+              padding: "2rem 2.25rem 2.25rem",
+              gap: "0.85rem",
             }}
           >
             <motion.p
@@ -243,18 +243,6 @@ function FeaturedCard({ project, index }: { project: Project; index: number }) {
             >
               {project.title}
             </h3>
-
-            <p
-              style={{
-                fontSize: 14,
-                lineHeight: 1.85,
-                color: "var(--color-muted)",
-                margin: 0,
-                maxWidth: "52ch",
-              }}
-            >
-              {project.summary}
-            </p>
 
             {/* CTA */}
             <motion.div
@@ -477,17 +465,6 @@ function ListCard({
               >
                 {project.title}
               </h3>
-
-              <p
-                style={{
-                  fontSize: 13,
-                  lineHeight: 1.75,
-                  color: "var(--color-muted)",
-                  margin: 0,
-                }}
-              >
-                {project.summary}
-              </p>
 
               {/* Metrics inline */}
               {project.metrics && project.metrics.length > 0 && (
