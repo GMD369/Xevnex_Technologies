@@ -38,9 +38,11 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="text-base font-bold tracking-[-0.01em] text-foreground transition-opacity hover:opacity-80"
+          className="text-lg font-bold tracking-tight text-foreground transition-opacity hover:opacity-80"
         >
-          Xevnex Technologies
+          Xevnex Technolog
+          <span style={{ color: "var(--color-accent)" }}>i</span>
+          es
         </Link>
 
         {/* Desktop Nav */}

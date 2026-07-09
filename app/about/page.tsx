@@ -369,7 +369,7 @@ export default function AboutPage() {
               }}
             >
               Building the next generation of{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                 AI and digital products
               </em>
               .
@@ -502,7 +502,7 @@ export default function AboutPage() {
                 }}
               >
                 Evolving with technology,{" "}
-                <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>grounded in delivery.</em>
+                <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>grounded in delivery.</em>
               </motion.h2>
 
               {timeline.map((item, i) => (
@@ -535,7 +535,7 @@ export default function AboutPage() {
                 }}
               >
                 Services that work{" "}
-                <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>together.</em>
+                <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>together.</em>
               </motion.h2>
 
               <div style={{ border: "1px solid var(--color-divider)", borderRadius: 16, overflow: "hidden" }}>
@@ -576,7 +576,7 @@ export default function AboutPage() {
               }}
             >
               Principles we build{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                 every engagement on.
               </em>
             </motion.h2>
@@ -670,7 +670,7 @@ export default function AboutPage() {
                   </div>
                   <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 3rem)", fontWeight: 700, lineHeight: 0.97, letterSpacing: "-0.04em", color: "var(--foreground)", margin: 0 }}>
                     Let&apos;s build your next{" "}
-                    <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>AI product.</em>
+                    <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>AI product.</em>
                   </h2>
                   <p style={{ fontSize: 14.5, lineHeight: 1.85, color: "var(--color-muted)", margin: 0, maxWidth: "38ch" }}>
                     Share your goals and constraints. We&apos;ll recommend a practical roadmap and delivery approach tailored to your team.

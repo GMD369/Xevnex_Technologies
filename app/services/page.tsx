@@ -311,7 +311,7 @@ export default function ServicesPage() {
               One team.
               <br />
               Every{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>layer.</em>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>layer.</em>
             </motion.h1>
 
             {/* Body */}
@@ -423,7 +423,7 @@ export default function ServicesPage() {
                 }}
               >
                 Every engagement,{" "}
-                <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+                <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                   fully covered.
                 </em>
               </motion.h2>
@@ -540,7 +540,7 @@ export default function ServicesPage() {
                     color: "var(--foreground)", margin: 0,
                   }}>
                     Let&apos;s build something{" "}
-                    <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+                    <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                       worth shipping.
                     </em>
                   </h2>

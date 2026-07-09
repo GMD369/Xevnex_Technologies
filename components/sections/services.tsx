@@ -107,7 +107,7 @@ export function ServicesSection() {
               Our Services
             </span>
           </motion.div>
-          <motion.h2 variants={fadeUpVariants} className="text-4xl font-bold text-[var(--foreground)] sm:text-5xl">
+          <motion.h2 variants={fadeUpVariants} className="text-4xl font-semibold text-[var(--foreground)] sm:text-5xl">
             Built to deliver AI and digital products end to end.
           </motion.h2>
         </motion.div>

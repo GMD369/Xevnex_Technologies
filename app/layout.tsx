@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Arimo, Manrope, JetBrains_Mono } from "next/font/google";
+import { Inter, Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 
-const arimo = Arimo({
+const inter = Inter({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["700"],
+  weight: ["700", "800"],
 });
 
 const manrope = Manrope({
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${arimo.variable} ${manrope.variable} ${jetBrainsMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${manrope.variable} ${jetBrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-[var(--background)] text-[var(--foreground)]">
         <div className="relative flex min-h-screen flex-col">

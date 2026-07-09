@@ -463,7 +463,7 @@ export default function ContactPage() {
               }}
             >
               Tell us what you&apos;re building and where things feel{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>stuck.</em>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>stuck.</em>
             </motion.h1>
 
             <motion.p

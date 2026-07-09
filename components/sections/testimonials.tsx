@@ -207,7 +207,7 @@ export function TestimonialsSection() {
               variants={fadeUpVariants}
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.0,
                 letterSpacing: "-0.04em",
                 color: "var(--foreground)",
@@ -216,7 +216,7 @@ export function TestimonialsSection() {
               }}
             >
               Trusted by teams building{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                 AI and digital products
               </em>{" "}
               with confidence.

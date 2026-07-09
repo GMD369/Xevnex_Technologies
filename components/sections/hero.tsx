@@ -32,7 +32,7 @@ export function HeroSection() {
           </div>
 
           <h1
-            className="animate-enter-up max-w-2xl font-bold leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]"
+            className="animate-enter-up max-w-2xl font-semibold leading-[1.05] tracking-[-0.02em] text-[var(--foreground)]"
             style={{
               fontSize: "clamp(2.5rem, 5vw, 4rem)",
               animationDelay: "80ms",

@@ -56,7 +56,7 @@ export function CtaSection() {
 
               <motion.h2
                 variants={fadeUpVariants}
-                className="text-3xl font-bold leading-[1.1] text-[var(--foreground)] sm:text-4xl"
+                className="text-3xl font-semibold leading-[1.1] text-[var(--foreground)] sm:text-4xl"
               >
                 Build your next{" "}
                 <span style={{ color: "var(--color-accent)" }}>AI-powered product</span>{" "}

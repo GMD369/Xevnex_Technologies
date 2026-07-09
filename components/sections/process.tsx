@@ -369,7 +369,7 @@ export function ProcessSection() {
               variants={fadeUpVariants}
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.0,
                 letterSpacing: "-0.04em",
                 color: "var(--foreground)",
@@ -378,7 +378,7 @@ export function ProcessSection() {
               }}
             >
               A focused system that keeps{" "}
-              <em style={{ fontStyle: "italic", color: "var(--color-accent)" }}>
+              <em style={{ fontStyle: "normal", color: "var(--color-accent)" }}>
                 execution clear.
               </em>
             </motion.h2>

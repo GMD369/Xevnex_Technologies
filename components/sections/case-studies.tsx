@@ -702,7 +702,7 @@ export function CaseStudiesSection() {
               variants={fadeUpVariants}
               style={{
                 fontSize: "clamp(2.5rem, 5vw, 4rem)",
-                fontWeight: 700,
+                fontWeight: 600,
                 lineHeight: 1.0,
                 letterSpacing: "-0.04em",
                 color: "var(--foreground)",
@@ -713,7 +713,7 @@ export function CaseStudiesSection() {
               Real projects with{" "}
               <em
                 style={{
-                  fontStyle: "italic",
+                  fontStyle: "normal",
                   color: "var(--color-accent)",
                 }}
               >
