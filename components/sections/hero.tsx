@@ -163,7 +163,7 @@ export function HeroSection() {
               <div key={i}>
                 <p
                   className="font-bold"
-                  style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "var(--foreground)", lineHeight: 1, margin: 0 }}
+                  style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)", color: "var(--color-accent)", lineHeight: 1, margin: 0 }}
                 >
                   {stat.value}
                 </p>

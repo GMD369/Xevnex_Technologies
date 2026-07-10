@@ -62,24 +62,42 @@ function ServiceCard({ service, index }: { service: (typeof services)[number]; i
     <motion.div variants={fadeUpVariants}>
       <Link
         href={`/services/${service.slug}`}
-        className="group flex h-full flex-col gap-4 rounded-2xl border border-[var(--color-divider)] bg-[var(--background)] p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-soft)]"
+        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--color-divider)] bg-[var(--background)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[var(--color-accent)] hover:shadow-[var(--shadow-soft)]"
       >
+        {/* Background image header — drop a photo at /public/images/services/<slug>.jpg */}
         <div
-          className="flex h-12 w-12 items-center justify-center rounded-full"
-          style={{ background: "var(--color-highlight)", color: "var(--color-accent)" }}
+          className="relative h-36 w-full overflow-hidden"
+          style={{
+            backgroundImage: `linear-gradient(160deg, var(--color-highlight) 0%, var(--color-surface) 100%), url(/images/services/${service.slug}.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundBlendMode: "overlay",
+          }}
         >
-          {icons[index % icons.length]}
+          <div
+            className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-60"
+            style={{ background: "linear-gradient(180deg, transparent 40%, var(--background) 100%)" }}
+          />
+          <div
+            className="absolute bottom-3 left-4 flex h-11 w-11 items-center justify-center rounded-full shadow-[var(--shadow-soft)]"
+            style={{ background: "var(--background)", color: "var(--color-accent)" }}
+          >
+            {icons[index % icons.length]}
+          </div>
         </div>
-        <h3 className="text-lg font-bold text-[var(--foreground)]">{service.title}</h3>
-        <p className="text-sm leading-relaxed text-[var(--color-muted)]">{service.description}</p>
-        <span
-          className="mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-        >
-          Learn more
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </span>
+
+        <div className="flex flex-1 flex-col gap-3 p-7 pt-5">
+          <h3 className="text-lg font-bold text-[var(--foreground)]">{service.title}</h3>
+          <p className="text-sm leading-relaxed text-[var(--color-muted)]">{service.description}</p>
+          <span
+            className="mt-auto inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-accent)] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+          >
+            Learn more
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </span>
+        </div>
       </Link>
     </motion.div>
   );
