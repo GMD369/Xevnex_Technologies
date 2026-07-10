@@ -34,11 +34,11 @@ export function Navbar() {
         scrolled ? "border-divider shadow-[0_1px_0_rgba(15,42,74,0.04)]" : "border-divider",
       )}
     >
-      <div className="shell flex items-center justify-between py-4">
+      <div className="shell flex items-center justify-between py-6">
         {/* Logo */}
         <Link
           href="/"
-          className="text-lg font-bold tracking-tight text-foreground transition-opacity hover:opacity-80"
+          className="text-xl font-bold tracking-tight text-foreground transition-opacity hover:opacity-80"
         >
           Xevnex Technolog
           <span style={{ color: "var(--color-accent)" }}>i</span>
@@ -46,7 +46,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-2 md:flex">
           {mainLinks.map((item) => {
             const active =
               pathname === item.href ||
@@ -57,7 +57,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
+                  "rounded-full px-5 py-2.5 text-sm font-medium tracking-wide transition-colors duration-200",
                   active
                     ? "text-accent"
                     : "text-foreground hover:text-accent",
@@ -70,7 +70,7 @@ export function Navbar() {
 
           <Link
             href="/contact"
-            className="ml-3 rounded-full px-5 py-2 text-sm font-semibold text-white transition-colors duration-200"
+            className="ml-4 rounded-full px-6 py-2.5 text-sm font-semibold tracking-wide text-white transition-colors duration-200"
             style={{ background: "var(--color-accent)" }}
           >
             Let&apos;s Talk
